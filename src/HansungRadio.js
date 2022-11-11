@@ -2,6 +2,8 @@ import React from 'react';
 
 // COMPONENT
 import Main from './components/Main';
+import FullDialog from './components/Dialog';
+import SimpleSlide from './components/SimpleSlide';
 
 // MUI
 import {createTheme, ThemeProvider } from '@mui/material/styles'
@@ -33,8 +35,11 @@ const NightTheme = createTheme({
 function HansungRadio() {
   return(
     <ThemeProvider theme={NightTheme}>
-      <CssBaseline />
-      <Main />
+      <CssBaseline/>
+      <FullDialog title="좋아요" contents="좋아요 리스트."/>
+      <FullDialog title="글쓰기" contents="글쓰기 입니다."/>
+      <FullDialog title="랭킹" contents="좋아요 입니다."/>
+      <SimpleSlide/>
     </ThemeProvider>
   );
 }
