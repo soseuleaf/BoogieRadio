@@ -8,7 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
 
-const FullDialog = ({title, contents}) => {
+function FullDialog({title, contents}) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -43,7 +43,6 @@ const FullDialog = ({title, contents}) => {
               <CloseIcon />
             </IconButton>
             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">{title}</Typography>
-            <Button autoFocus color="inherit" onClick={handleClose}>Close</Button>
           </Toolbar>
         </AppBar>
         <Box sx={{padding: "24px"}}>
