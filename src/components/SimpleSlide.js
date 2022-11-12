@@ -10,7 +10,7 @@ import { Theme } from '@mui/material/styles';
 // MUI Icons
 import { red, green, grey } from '@mui/material/colors';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
-import DirectionsTransitIcon from '@mui/icons-material/DirectionsTransit';
+import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 
 const icon = (
   <Paper elevation={4}>
@@ -39,7 +39,7 @@ function SimpleSlide() {
         </IconButton>
 
         <IconButton onClick={()=>setChecked(true)}>
-            <DirectionsTransitIcon sx={{ fontSize: "80px", margin: "25px", color: green[500]  }}/>
+            <DirectionsCarIcon sx={{ fontSize: "80px", margin: "25px", color: green[500]  }}/>
         </IconButton>
 
         <Slide 
