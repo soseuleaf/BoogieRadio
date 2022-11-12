@@ -2,6 +2,7 @@ import React from 'react';
 
 // COMPONENT
 import Main from './components/Main';
+import SlidePost from './components/SlidePost'
 
 // MUI
 import {createTheme, ThemeProvider } from '@mui/material/styles'
@@ -32,10 +33,10 @@ const NightTheme = createTheme({
 
 function HansungRadio() {
   return(
-    <ThemeProvider theme={NightTheme}>
-      <CssBaseline />
-      <Main />
-    </ThemeProvider>
+    //<ThemeProvider theme={NightTheme}>
+      //<CssBaseline />
+      <SlidePost />
+    //</ThemeProvider>
   );
 }
 
