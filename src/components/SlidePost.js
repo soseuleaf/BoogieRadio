@@ -9,17 +9,16 @@ import { ArrowLeft, ArrowRight } from "@mui/icons-material";
 
 // Import
 import PostCard from "./PostCard";
-import { PostData } from "/src/data/PostData";
 
 /* 화살표 클릭 시 카드가 슬라이드 되는 컴포넌트 */
 
-const SlidePost = () => {
+const SlidePost = ({ PostData }) => {
   // 배열의 몇번째 데이터를 불러올지 정하는 useState 입니다.
   const [index, setIndex] = useState(0);
   // 슬라이드가 종료되었는지 판단합니다.
   const [slideIn, setSlideIn] = useState(true);
   // 슬라이드가 될 방향을 정합니다.
-  const [slideDirection, setSlideDirection] = useState("left");
+  const [slideDirection, setSlideDirection] = useState("up");
 
   // PostData json 배열의 해당 값을 가져오고, postdata의 길이를 저장합니다.
   const post = PostData[index];
@@ -45,11 +44,11 @@ const SlidePost = () => {
   // 화살표 클릭 시 실행할 함수 입니다.
   const onArrowClick = (direction) => {
     // 화살표 클릭 시 다음 Post를 받아올지, 이전 Post를 받아올지 판단합니다.
-    const increment = direction === "left" ? -1 : 1;
+    const increment = direction === "up" ? -1 : 1;
     // 받아올 값이 Post 배열의 길이를 넘어간다면 조정합니다.
     const newIndex = (index + increment + postLength) % postLength;
     // 슬라이드가 나간 방향과 들어오는 방향은 반대여야 하기 때문에 반대 값을 가져옵니다.
-    const oppDirection = direction === "left" ? "right" : "left";
+    const oppDirection = direction === "up" ? "down" : "up";
 
     // 슬라이드 방향을 설정합니다.
     setSlideDirection(direction);
@@ -65,10 +64,10 @@ const SlidePost = () => {
 
   // 방향값과 클릭시 그에 맞는 화살표 버튼을 반환 시켜줍니다.
   const Arrow = ({ direction }) => {
-    if (direction == "left") {
+    if (direction == "up") {
       return (
         <IconButton
-          onClick={() => onArrowClick("left")}
+          onClick={() => onArrowClick("up")}
           sx={{ width: 100, height: 100 }}
         >
           <ArrowLeft sx={{ fontSize: "80px" }} />
@@ -77,7 +76,7 @@ const SlidePost = () => {
     } else {
       return (
         <IconButton
-          onClick={() => onArrowClick("right")}
+          onClick={() => onArrowClick("down")}
           sx={{ width: 100, height: 100 }}
         >
           <ArrowRight sx={{ fontSize: "80px" }} />
@@ -95,13 +94,13 @@ const SlidePost = () => {
           alignItems: "center",
         }}
       >
-        <Arrow direction="left" />
+        <Arrow direction="up" />
         <Slide in={slideIn} direction={slideDirection}>
           <Box sx={{ width: 400, height: 500 }}>
             <PostCard post={post} />
           </Box>
         </Slide>
-        <Arrow direction="right" />
+        <Arrow direction="down" />
       </Box>
     </>
   );

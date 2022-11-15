@@ -1,42 +1,61 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 
 // COMPONENT
-import Main from './components/Main';
-import SlidePost from './components/SlidePost'
+import Main from "./components/Main";
+import SlidePost from "./components/SlidePost";
+import PostAdd from "./components/PostAdd";
 
 // MUI
-import {createTheme, ThemeProvider } from '@mui/material/styles'
-import { Paper, Grid, Button } from '@mui/material';
-import CssBaseline from '@mui/material/CssBaseline';
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { Paper, Grid, Button } from "@mui/material";
+import CssBaseline from "@mui/material/CssBaseline";
+
+// data
+import { PostData } from "/src/data/PostData";
 
 const NightTheme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: "dark",
     primary: {
-      main: '#fbc02d',
+      main: "#fbc02d",
     },
     secondary: {
-      main: '#ef6c00',
+      main: "#ef6c00",
     },
     error: {
-      main: '#f44336',
+      main: "#f44336",
     },
     warning: {
-      main: '#e91e63',
+      main: "#e91e63",
     },
     background: {
-      default: '#000210',
-      paper: '#424242',
+      default: "#000210",
+      paper: "#424242",
     },
   },
-})
+});
 
+const loadUserPost = () => [...PostData];
+
+//<SlidePost PostData={PostData} />;
 function HansungRadio() {
-  return(
-    //<ThemeProvider theme={NightTheme}>
-      //<CssBaseline />
-      <SlidePost />
-    //</ThemeProvider>
+  var [postData, setPostData] = useState(loadUserPost());
+
+  const addPost = (data) => {
+    console.log(postData);
+    console.log(data);
+    setPostData([...postData, data]);
+  };
+
+  useEffect(() => {
+    console.log(postData);
+  });
+
+  return (
+    <>
+      <PostAdd onClick={addPost} />
+      <SlidePost PostData={postData} />
+    </>
   );
 }
 
