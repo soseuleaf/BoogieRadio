@@ -8,25 +8,26 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+}
   
-  .background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 50vw;
-    background: rgba(255, 255, 255, 0.9);
-  }
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 50vw;
+  background: rgba(255, 255, 255, 0.9);
+}
 
-  .drag-area {
-    background: white;
-    width: 500px;
-    height: 500px;
-    border-radius: 30px;
-  }
+.drag-area {
+  background: white;
+  width: 500px;
+  height: 500px;
+  border-radius: 30px;
+}
 
-  .icons{
-    width: min-content;
-    height: min-content;
-  }
+.icons{
+  display: inline-block;
+  width: min-content;
+  height: min-content;
+}
