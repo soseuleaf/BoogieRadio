@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import "./App.css";
 import styled, {css} from "styled-components";
-import Weather from "./components/Weather";
+import Weather from "./Weather";
 
 
 function App() {
