@@ -6,12 +6,11 @@ const api = {
     base: "https://api.openweathermap.org/data/2.5/",
 };
 
-function Weather({setCold}) {
+function Weather({setTemp}) {
     const city = "Seoul";
     const url = `${api.base}weather?q=${city}&appid=${api.key}`;
     const [weather, setWeather] = useState("");
     
-
   // 날씨 가져오기
     axios.get(url).then((responseData) => {
         const data = responseData.data;
@@ -22,20 +21,21 @@ function Weather({setCold}) {
         loading: false,
         });
     });
-
-    setCold(weather.temperature < 290 ? true : false);
+    
+    setTemp(weather.temperature < 0 ? true : false);
     const iconurl=`http://openweathermap.org/img/wn/${weather.icon}@2x.png`;
 
     return (
     <>
         
         <div className="weatherBox">
-            <div id="Temperature" style={{color:"white", fontSize:"10px"}}>{(weather.temperature -273.15).toFixed(2)}℃</div>
-            <div id="WeatherDiv" style={{color:"white", fontSize:"10px"}}>{weather.main}</div>
+            <div id="Temperature" style={{color:"black", fontSize:"10px"}}>{(weather.temperature -273.15).toFixed(2)}℃</div>
+            <div id="WeatherDiv" style={{color:"black", fontSize:"10px"}}>{weather.main}</div>
             <img src={iconurl} style={{width:"20px", height:"20px"}}alt=" "/>
             
         </div>
     </>
     );
 }
+
 export default Weather;
