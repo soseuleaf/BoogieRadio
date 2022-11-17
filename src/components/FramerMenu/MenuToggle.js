@@ -6,26 +6,26 @@ const Path = (props) => (
   <motion.path
     fill="transparent"
     strokeWidth="3"
-    stroke="hsl(0, 0%, 18%)"
+    stroke="hsl(0, 92%, 0%)"
     strokeLinecap="round"
     {...props}
   />
 );
 
-const MenuToggle = ({ toggle, top }) => (
-  <Button
+const MenuToggle = ({ toggle, top, isOpen }) => (
+  <button
     onClick={toggle}
-    disableElevation
-    disableRipple
-    sx={{
-      cursor: "pointer",
+    style={{
+      outline: "none",
+      border: "none",
       position: "absolute",
-      top: 28 + top,
-      left: "8px",
+      top: 38 + top,
+      left: "25px",
       width: "50px",
-      height: " 50px",
+      height: "50px",
       borderRadius: "50%",
       background: "transparent",
+      zIndex: isOpen == true ? 1 : 0,
     }}
   >
     <svg width="23" height="23" viewBox="0 0 23 23">
@@ -50,7 +50,7 @@ const MenuToggle = ({ toggle, top }) => (
         }}
       />
     </svg>
-  </Button>
+  </button>
 );
 
 export default MenuToggle;
