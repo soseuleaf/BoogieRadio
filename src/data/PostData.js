@@ -1,67 +1,84 @@
-export let PostData = 
-[
-    {
-        user_id: 0,
+export let PostData = [
+  {
+    uuid: 1,
+    user_id: 0,
 
-        music_img: 'test2.png',
-        music_title: '(G)I-DLE - Nxde',
-        music_url: 'https://youtu.be/fCO7f0SmrDc',
+    music_img: "test2.png",
+    music_title: "(G)I-DLE - Nxde",
+    music_url: "https://youtu.be/fCO7f0SmrDc",
 
-        post_title: '사연 제목 입니다.',
-        post_content: '사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.',
+    post_title: "사연 제목 입니다.",
+    post_content:
+      "사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.사연 글 입니다.",
 
-        backgroundColor: '#ff7c7c',
-    },
+    backgroundColor: "#ff7c7c",
 
-    {
-        user_id: 1,
+    emoji: [5, 4, 3, 2, 1],
+  },
 
-        music_img: 'test2.png',
-        music_title: 'LE SSERAFIM - ANTIFRAGILE',
-        music_url: 'https://www.youtube.com/watch?v=pyf8cbqyfPs',
+  {
+    uuid: 2,
+    user_id: 1,
 
-        post_title: '사연 제목 입니다.',
-        post_content: '사연 글 입니다.',
+    music_img: "test2.png",
+    music_title: "LE SSERAFIM - ANTIFRAGILE",
+    music_url: "https://www.youtube.com/watch?v=pyf8cbqyfPs",
 
-        backColor: '#ffb6b9',
-    },
+    post_title: "사연 제목 입니다.",
+    post_content: "사연 글 입니다.",
 
-    {
-        user_id: 2,
+    backColor: "#ffb6b9",
 
-        music_img: 'test2.png',
-        music_title: 'NewJeans - Attention',
-        music_url: 'https://www.youtube.com/watch?v=kdOS94IjzzE',
+    emoji: [5, 4, 3, 2, 1],
+  },
 
-        post_title: '사연 제목 입니다.',
-        post_content: '사연 글 입니다.',
+  {
+    uuid: 3,
+    user_id: 2,
 
-        backColor: '#8deaff',
-    },
+    music_img: "test2.png",
+    music_title: "NewJeans - Attention",
+    music_url: "https://www.youtube.com/watch?v=kdOS94IjzzE",
 
-    {
-        user_id: 3,
+    post_title: "사연 제목 입니다.",
+    post_content: "사연 글 입니다.",
 
-        music_img: 'test2.png',
-        music_title: 'ph-1 - Cupid',
-        music_url: 'https://soundcloud.com/voraporn-kankloy/ph-1-cupid-featpenomeco?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing',
+    backColor: "#8deaff",
 
-        post_title: '사연 제목 입니다.',
-        post_content: '사연 글 입니다.',
+    emoji: [5, 4, 3, 2, 1],
+  },
 
-        backColor: '#ffe084',
-    },
+  {
+    uuid: 4,
+    user_id: 3,
 
-    {
-        user_id: 4,
+    music_img: "test2.png",
+    music_title: "ph-1 - Cupid",
+    music_url:
+      "https://soundcloud.com/voraporn-kankloy/ph-1-cupid-featpenomeco?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
 
-        music_img: 'test2.png',
-        music_title: 'ph-1 - Like Me',
-        music_url: 'https://soundcloud.com/l2share52/ph-1-like-me-prod-by-mokyo?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing',
+    post_title: "사연 제목 입니다.",
+    post_content: "사연 글 입니다.",
 
-        post_title: '사연 제목 입니다.',
-        post_content: '사연 글 입니다.',
+    backColor: "#ffe084",
 
-        backColor: '#d9d9d9',
-    },
-];  
+    emoji: [5, 4, 3, 2, 1],
+  },
+
+  {
+    uuid: 5,
+    user_id: 4,
+
+    music_img: "test2.png",
+    music_title: "ph-1 - Like Me",
+    music_url:
+      "https://soundcloud.com/l2share52/ph-1-like-me-prod-by-mokyo?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
+
+    post_title: "사연 제목 입니다.",
+    post_content: "사연 글 입니다.",
+
+    backColor: "#d9d9d9",
+
+    emoji: [5, 4, 3, 2, 1],
+  },
+];

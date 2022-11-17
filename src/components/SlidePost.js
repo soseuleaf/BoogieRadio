@@ -12,43 +12,38 @@ import PostCard from "./PostCard";
 
 /* 화살표 클릭 시 카드가 슬라이드 되는 컴포넌트 */
 
-const SlidePost = ({ PostData }) => {
+const SlidePost = ({ postData, modifyEmoji = (f) => f }) => {
   // 배열의 몇번째 데이터를 불러올지 정하는 useState 입니다.
   const [index, setIndex] = useState(0);
   // 슬라이드가 종료되었는지 판단합니다.
   const [slideIn, setSlideIn] = useState(true);
   // 슬라이드가 될 방향을 정합니다.
-  const [slideDirection, setSlideDirection] = useState("up");
+  const [slideDirection, setSlideDirection] = useState("left");
 
   // PostData json 배열의 해당 값을 가져오고, postdata의 길이를 저장합니다.
-  const post = PostData[index];
-  const postLength = PostData.length;
+  const post = postData[index];
+  const postLength = postData.length;
 
-  /* 화살표 방향을 받아서 클릭이 이뤄졌는지 판단하는 useEffect 입니다.
-    useEffect(() => {
-        const handleKeyDown = (e) => {
-            if (e.keyCode === 39) {
-                onArrowClick('right');
-            }
-            if (e.keyCode === 37) {
-                onArrowClick('left');
-            }
-        };
-        window.addEventListener('keydown', handleKeyDown);
-        return () => {
-            window.removeEventListener('keydown', handleKeyDown);
-        };
-    });
-    */
+  /* 
+  이모지가 클릭 되었을 때 실행되는 함수, PostCard가 실행 시키는 함수.
+  HansungRadio에서 내려온 modifyEmoji를 실행한다.
+  해당 함수는 PostCard에서 실행되며 어떤 위치의 이모티콘이 눌렸는지 확인하고
+  해당 위치의 값을 1 증가시키고, modiftEmoji에 값을 전달한다.
+  */
+  const clickEmoji = (emojiIndex) => {
+    const emojis = [...post.emoji];
+    emojis[emojiIndex]++;
+    modifyEmoji(post.uuid, emojis);
+  };
 
   // 화살표 클릭 시 실행할 함수 입니다.
   const onArrowClick = (direction) => {
     // 화살표 클릭 시 다음 Post를 받아올지, 이전 Post를 받아올지 판단합니다.
-    const increment = direction === "up" ? -1 : 1;
+    const increment = direction === "left" ? -1 : 1;
     // 받아올 값이 Post 배열의 길이를 넘어간다면 조정합니다.
     const newIndex = (index + increment + postLength) % postLength;
     // 슬라이드가 나간 방향과 들어오는 방향은 반대여야 하기 때문에 반대 값을 가져옵니다.
-    const oppDirection = direction === "up" ? "down" : "up";
+    const oppDirection = direction === "left" ? "right" : "left";
 
     // 슬라이드 방향을 설정합니다.
     setSlideDirection(direction);
@@ -64,10 +59,10 @@ const SlidePost = ({ PostData }) => {
 
   // 방향값과 클릭시 그에 맞는 화살표 버튼을 반환 시켜줍니다.
   const Arrow = ({ direction }) => {
-    if (direction == "up") {
+    if (direction === "left") {
       return (
         <IconButton
-          onClick={() => onArrowClick("up")}
+          onClick={() => onArrowClick("left")}
           sx={{ width: 100, height: 100 }}
         >
           <ArrowLeft sx={{ fontSize: "80px" }} />
@@ -76,7 +71,7 @@ const SlidePost = ({ PostData }) => {
     } else {
       return (
         <IconButton
-          onClick={() => onArrowClick("down")}
+          onClick={() => onArrowClick("right")}
           sx={{ width: 100, height: 100 }}
         >
           <ArrowRight sx={{ fontSize: "80px" }} />
@@ -94,13 +89,13 @@ const SlidePost = ({ PostData }) => {
           alignItems: "center",
         }}
       >
-        <Arrow direction="up" />
+        <Arrow direction="left" />
         <Slide in={slideIn} direction={slideDirection}>
           <Box sx={{ width: 400, height: 500 }}>
-            <PostCard post={post} />
+            <PostCard post={post} clickEmoji={clickEmoji} />
           </Box>
         </Slide>
-        <Arrow direction="down" />
+        <Arrow direction="right" />
       </Box>
     </>
   );

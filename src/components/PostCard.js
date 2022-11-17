@@ -3,13 +3,27 @@ import React, { useState } from "react";
 
 // MUI Material
 import { styled } from "@mui/material/styles";
+import { red, yellow, blue, green, purple } from "@mui/material/colors";
 import { Card, CardHeader, CardContent, CardActions } from "@mui/material";
-import { Avatar, IconButton, Collapse, Typography } from "@mui/material";
+import {
+  Avatar,
+  IconButton,
+  Collapse,
+  Typography,
+  Stack,
+  Divider,
+  Button,
+} from "@mui/material";
 
 // MUI Icons
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
+import {
+  Favorite,
+  ThumbUp,
+  SentimentSatisfiedAlt,
+  Star,
+  TipsAndUpdates,
+  ImportContacts,
+} from "@mui/icons-material";
 
 // Media Player
 import MediaPlayer from "./MediaPlayer";
@@ -17,20 +31,24 @@ import MediaPlayer from "./MediaPlayer";
 // User Data
 import { UserData } from "/src/data/UserData";
 
-// 열리기 버튼 관련 함수입니다.
-const ExpandMore = styled((props) => {
-  const { expand, ...more } = props;
-  return <IconButton {...more} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-  marginLeft: "auto",
-  transition: theme.transitions.create("transform", {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
+// 이미지 아이콘 반환용 함수
+const getEmoji = (index, color) => {
+  switch (index) {
+    case 0:
+      return <Favorite sx={color} />;
+    case 1:
+      return <ThumbUp sx={color} />;
+    case 2:
+      return <SentimentSatisfiedAlt sx={color} />;
+    case 3:
+      return <Star sx={color} />;
+    case 4:
+      return <TipsAndUpdates sx={color} />;
+  }
+};
 
 // 플레이어, 유저 사연등을 표시하는 가드 입니다.
-const PostCard = ({ post }) => {
+const PostCard = ({ post, clickEmoji = (f) => f }) => {
   // 더보기를 클릭하여 사연이 열렸는지 닫혔는지 판단합니다.
   const [expanded, setExpanded] = useState(false);
   // 사연의 user_id를 가져와서 userdata에서 해당 유저의 정보를 찾아서 저장합니다
@@ -39,6 +57,15 @@ const PostCard = ({ post }) => {
   // 더보기 버튼 클릭 시 동작하는 함수 입니다.
   const handleExpandClick = () => {
     setExpanded(!expanded);
+  };
+
+  // 이모지 버튼 생성용 함수
+  const EmojiButton = ({ index, color }) => {
+    return (
+      <IconButton onClick={() => clickEmoji(index)}>
+        {getEmoji(index, color)} {post.emoji[index]}
+      </IconButton>
+    );
   };
 
   return (
@@ -50,18 +77,11 @@ const PostCard = ({ post }) => {
           /* 유저의 프로필 이미지가 들어갈 둥근 이미지 입니다. */
           <Avatar src={`/images/${userData.user_profile}`} />
         }
-        action={
-          /* 오른쪽의 더보기 버튼 입니다. 필요 없을 시 삭제 */
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
         title={
           /* 유저의 이름이 들어갈 공간 입니다. */
           userData.user_name
         }
       />
-
       {/* 뮤직 플레이어가 들어갈 공간 입니다. post data의 이미지값, 제목, 음악 url을 넘깁니다. */}
       <MediaPlayer
         img={post.music_img}
@@ -69,10 +89,24 @@ const PostCard = ({ post }) => {
         url={post.music_url}
       />
 
-      {/* 좋아요 버튼 입니다. */}
-      <IconButton>
-        <FavoriteIcon />
-      </IconButton>
+      {/* 이모지 공간 입니다. */}
+      <Stack
+        direction="row" // 가로로 정렬
+        divider={<Divider orientation="vertical" flexItem />} // 공간 나누기
+        justifyContent="space-evenly" // 정렬 방법
+        alignItems="center" // 가운데로
+      >
+        {/*
+        이모지 값 수정이 최초로 일어나는 곳.
+        아이콘버튼을 클릭하면 지정해둔 값이 SlidePost의 clickEmoji를 실행한다.
+        post의 emoji배열의 값을 보이도록 수정한 것 말고는 별 다른것 없음.
+        */}
+        <EmojiButton index={0} color={{ color: red[500] }} />
+        <EmojiButton index={1} color={{ color: yellow[700] }} />
+        <EmojiButton index={2} color={{ color: green[700] }} />
+        <EmojiButton index={3} color={{ color: blue[700] }} />
+        <EmojiButton index={4} color={{ color: purple[700] }} />
+      </Stack>
 
       {/* 사연의 내용이 들어가는 공간 입니다. */}
       <CardContent>
@@ -81,19 +115,16 @@ const PostCard = ({ post }) => {
           {post.post_title}
         </Typography>
 
-        {/* 사연의 내용이 들어갑니다. 접기 위하여 collapse component를 추가했습니다. checked에 따라 접을지 펼지를 정합니다.*/}
-        <Collapse in={expanded} collapsedSize={60}>
+        {/* 사연의 내용이 들어갑니다. 30*/}
+        <Collapse in={expanded} collapsedSize={40}>
           <Typography variant="body2" color="text.secondary">
             {post.post_content}
           </Typography>
         </Collapse>
       </CardContent>
 
-      {/* 사연의 더보기 버튼이 들어가는 공간 입니다. */}
-      <CardActions disableSpacing>
-        <ExpandMore expand={expanded} onClick={handleExpandClick}>
-          <ExpandMoreIcon />
-        </ExpandMore>
+      <CardActions sx={{ justifyContent: "flex-end" }}>
+        <Button startIcon={<ImportContacts />}>Read More</Button>
       </CardActions>
     </Card>
   );

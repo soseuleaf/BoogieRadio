@@ -42,19 +42,26 @@ function HansungRadio() {
   var [postData, setPostData] = useState(loadUserPost());
 
   const addPost = (data) => {
-    console.log(postData);
-    console.log(data);
     setPostData([...postData, data]);
   };
 
-  useEffect(() => {
-    console.log(postData);
-  });
-
+  /* 
+  최종적으로 postdata의 해당 post의 emoji를 수정하는 함수.
+  postdata의 고유값 uuid와 emoji 배열을 받아서 값을 수정한다.
+  해당 함수는 SlidePost에서 불려진다.
+  */
+  const modifyEmoji = (uuid, emoji) => {
+    const findIndex = postData.findIndex((post) => post.uuid === uuid);
+    let copy = [...postData];
+    if (findIndex != -1) {
+      copy[findIndex] = { ...copy[findIndex], emoji };
+      setPostData(copy);
+    }
+  };
   return (
     <>
       <PostAdd onClick={addPost} />
-      <SlidePost PostData={postData} />
+      <SlidePost postData={postData} modifyEmoji={modifyEmoji} />
     </>
   );
 }

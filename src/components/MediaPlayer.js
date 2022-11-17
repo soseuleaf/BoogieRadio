@@ -128,6 +128,7 @@ const MediaPlayer = ({ img, title, url }) => {
         height="0"
         url={url}
         loop={true}
+        mute={true}
         playing={playing}
         volume={volume}
         ref={setInstance}
