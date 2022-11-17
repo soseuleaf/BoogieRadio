@@ -1,14 +1,14 @@
-import * as React from 'react';
-import { Paper, Grid, Box } from '@mui/material';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import CloseIcon from '@mui/icons-material/Close';
+import React, { useState } from "react";
+import { Paper, Grid, Box } from "@mui/material";
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import CloseIcon from "@mui/icons-material/Close";
 
-function FullDialog({title, contents}) {
+function FullDialog({ title, contents }) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -29,10 +29,10 @@ function FullDialog({title, contents}) {
         open={open}
         onClose={handleClose}
         sx={{
-            padding: '24px'
+          padding: "24px",
         }}
       >
-        <AppBar sx={{ position: 'relative' }}>
+        <AppBar sx={{ position: "relative" }}>
           <Toolbar>
             <IconButton
               edge="start"
@@ -42,12 +42,12 @@ function FullDialog({title, contents}) {
             >
               <CloseIcon />
             </IconButton>
-            <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">{title}</Typography>
+            <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
+              {title}
+            </Typography>
           </Toolbar>
         </AppBar>
-        <Box sx={{padding: "24px"}}>
-            {contents}
-        </Box>
+        <Box sx={{ padding: "24px" }}>{contents}</Box>
       </Dialog>
     </div>
   );
