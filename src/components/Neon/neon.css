@@ -1,3 +1,7 @@
+body{
+  background-color: #282c34;
+}
+
 :root{ 
   --mainColor : #2c18d6;
   --raCcolor : #cc00ff;
@@ -201,8 +205,6 @@
   top: -70px;
   width: 726px;
 }
-
-
 
 /* ractangle */
 .rectangle {

@@ -1,17 +1,8 @@
-import './App.css';
-
-import Font from './components/f_ont/font';
-
+import React from "react";
+import Neon from "./components/Neon/Neon";
 
 function App() {
-  return (
-    <Font title="BoogieRadio"
-    boogieradio1 = "BoogieRadio"
-    boogieradio2 = "BoogieRadio"
-    boogieradio3 = "BoogieRadio"
-    boogieradio4 = "BoogieRadio"/>
-
-  );
+  return <Neon content="BoogieRadio" />;
 }
 
 export default App;
