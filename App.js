@@ -1,20 +1,17 @@
-import React, { useState } from "react";
+import React,{useState} from "react";
 import "./App.css";
-import styled, { css } from "styled-components";
+import styled, {css} from "styled-components";
 import Weather from "./components/Weather";
 
 
 function App() {
-    const [cold, setCold] = useState();
-
+    const [temp,setTemp]=useState("");
     return (
-    <Wrapper className="App" cold={cold}>
-        <Weather setCold={setCold} />
+    <Wrapper className="App" temp={temp}>
+        <Weather setTemp={setTemp}/>
     </Wrapper>
     );
 }
-
-export default App;
 
 const Wrapper = styled.div`
     width: 100px;
@@ -23,10 +20,10 @@ const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: burlywood;
+    background-color: white;
     ${(props) =>
-        props.cold &&
-        css`
-        background-color: skyblue;
+    props.cold &&
+    css`
+        background-color: black;
     `}
 `;
