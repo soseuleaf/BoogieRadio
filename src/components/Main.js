@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // Component
 import Weather from "./Weather";
@@ -12,6 +12,7 @@ const Main = () => {
   return (
     <Grid container>
       <Neon content="BoogieRadio" />
+
       <Grid
         item
         xs={false}
@@ -28,12 +29,14 @@ const Main = () => {
       <Grid item xs={12} sm={8} md={5}>
         <Paper
           sx={{
+            height: "50vh",
             padding: "24px",
             margin: "24px",
           }}
         >
           {/* <Traffic />
           <Weather /> */}
+          Hello
         </Paper>
       </Grid>
     </Grid>
