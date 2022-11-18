@@ -1,10 +1,16 @@
-body{
-  background-color: #282c34;
-}
-
 :root{ 
   --mainColor : #2c18d6;
   --raCcolor : #cc00ff;
+}
+
+
+.container-center-horizontal{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  display : flex;
+  justify-content: center;
+  align-items : center;
 }
 
 .f_ont {

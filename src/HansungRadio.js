@@ -24,7 +24,7 @@ const NightTheme = createTheme({
       main: "#e91e63",
     },
     background: {
-      default: "#000210",
+      default: "#282c34",
       paper: "#424242",
     },
   },
