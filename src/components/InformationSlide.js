@@ -6,8 +6,7 @@ import { Theme } from "@mui/material/styles";
 
 // MUI Icons
 import { red, green, grey } from "@mui/material/colors";
-import WbSunnyIcon from "@mui/icons-material/WbSunny";
-import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
+import { WbSunny, DirectionsCar } from "@mui/icons-material";
 
 function chagneContent(state, action) {
   switch (action.type) {
@@ -54,13 +53,11 @@ const SimpleSlide = () => {
       }}
     >
       <IconButton onClick={() => changeContent("Weather")}>
-        <WbSunnyIcon
-          sx={{ fontSize: "80px", margin: "25px", color: red[500] }}
-        />
+        <WbSunny sx={{ fontSize: "80px", margin: "25px", color: red[500] }} />
       </IconButton>
 
       <IconButton onClick={() => changeContent("Traffic")}>
-        <DirectionsCarIcon
+        <DirectionsCar
           sx={{ fontSize: "80px", margin: "25px", color: green[500] }}
         />
       </IconButton>

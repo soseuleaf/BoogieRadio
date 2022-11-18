@@ -2,6 +2,7 @@ import React from "react";
 
 // COMPONENT
 import InformationSlide from "./components/InformationSlide";
+import Neon from "./components/Neon/Neon";
 
 // MUI
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -34,9 +35,7 @@ function HansungRadio() {
   return (
     <ThemeProvider theme={NightTheme}>
       <CssBaseline />
-      <FullDialog title="좋아요" contents="좋아요 리스트." />
-      <FullDialog title="글쓰기" contents="글쓰기 입니다." />
-      <FullDialog title="랭킹" contents="좋아요 입니다." />
+      <Neon content="BoogieRadio" />
       <InformationSlide />
     </ThemeProvider>
   );
