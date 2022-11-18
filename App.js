@@ -1,14 +1,15 @@
 import React from "react";
 import "./App.css";
-import Weather from "./Weather";
-import Traffic from "./Traffic";
+import Weather from "./src/components/Weather";
+import Traffic from "./src/components/Traffic";
 
 
 function App() {
     return (
+        <>
         <Traffic/>
         <Weather/>
-
+        </>
     );
 }
 
