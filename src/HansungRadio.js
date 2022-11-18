@@ -35,8 +35,10 @@ const NightTheme = createTheme({
 });
 
 function HansungRadio() {
+  // 메뉴가 열렸는지 안 열렸는지 확인하는 hook
   const [isOpen, toggleOpen] = useCycle(false, true);
 
+  // 메뉴가 열리면 동작함
   const MenuOpen = () => {
     toggleOpen();
   };
@@ -73,6 +75,8 @@ function HansungRadio() {
         top={400}
         onClick={MenuOpen}
       />
+
+      {/* 메인 컨텐츠가 들어갈 div, isOpen 값을 통해서 x값을 애니메이션으로 이동 시킴 */}
       <motion.div
         layout
         animate={{ x: isOpen ? window.innerWidth / 3 - 80 : 0 }}
@@ -86,8 +90,7 @@ function HansungRadio() {
             height: "300px",
           }}
         >
-          {" "}
-          자리{" "}
+          메인 컨텐츠가 들어갈것 같은 자리 대충 지정
         </Paper>
       </motion.div>
     </>
