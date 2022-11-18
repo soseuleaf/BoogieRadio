@@ -1,10 +1,7 @@
 import React, { useState, useReducer } from "react";
-import Box from "@mui/material/Box";
-import Switch from "@mui/material/Switch";
-import Paper from "@mui/material/Paper";
-import Slide from "@mui/material/Slide";
-import IconButton from "@mui/material/IconButton";
-import FormControlLabel from "@mui/material/FormControlLabel";
+
+// MUI
+import { Box, Paper, Slide, IconButton } from "@mui/material";
 import { Theme } from "@mui/material/styles";
 
 // MUI Icons
