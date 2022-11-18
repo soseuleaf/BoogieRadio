@@ -1,8 +1,14 @@
-import * as React from "react";
-import { useRef, useMemo, useEffect } from "react";
+import React, { useRef, useMemo, useEffect } from "react";
+
+// Component
+import MenuButton from "./MenuButton";
+
+// Framer
 import { motion, useCycle } from "framer-motion";
-import MenuToggle from "./MenuToggle";
+
+// MUI
 import { Paper } from "@mui/material";
+import { Edit } from "@mui/icons-material";
 
 const sidebar = (top) => ({
   open: {
@@ -24,22 +30,23 @@ const sidebar = (top) => ({
   },
 });
 
-const getText = (text) => {
-  console.log("글자가 변동되었습니다.");
-};
-
-const Menu = ({ top, log = (f) => f }) => {
+const Menu = ({ icon, content, top, onClick = (f) => f }) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
-  const top1 = 0;
-
-  useMemo(() => log("asdas"), [isOpen]);
 
   return (
     <motion.nav initial={false} animate={isOpen ? "open" : "closed"}>
       <motion.div className="background" variants={sidebar(top)}>
-        <Paper sx={{ visibility: isOpen ? "visible" : "hidden" }}>sadasd</Paper>
+        {content}
       </motion.div>
-      <MenuToggle toggle={() => toggleOpen()} top={top} isOpen={isOpen} />
+      <MenuButton
+        icon={icon}
+        toggle={() => {
+          toggleOpen();
+          onClick();
+        }}
+        top={top}
+        isOpen={isOpen}
+      />
     </motion.nav>
   );
 };
