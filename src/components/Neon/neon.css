@@ -1,19 +1,19 @@
-:root{ 
-  --mainColor : #2c18d6;
-  --raCcolor : #cc00ff;
+:root {
+  --mainColor: #2c18d6;
+  --raCcolor: #cc00ff;
 }
 
-.container-center-horizontal{
+.container-center-horizontal {
   width: 100vw;
   height: 100vh;
   position: absolute;
   top: 0;
   left: 0;
-  display : flex;
+  display: flex;
   justify-content: center;
-  align-items : center;
+  align-items: center;
   background-color: #282c34;
-  overflow:auto;
+  overflow: auto;
 }
 
 .f_ont {
@@ -30,7 +30,7 @@
 .overlap-group {
   height: 263px;
   margin-top: 100px;
-  position:relative;
+  position: relative;
   width: 1083px;
   left: 250px;
 }
@@ -79,7 +79,7 @@
   filter: blur(0.97px);
   left: 9px;
   letter-spacing: 0;
-  
+
   line-height: normal;
   position: absolute;
   text-align: center;
@@ -104,11 +104,11 @@
   width: 1070px;
 }
 
-.inter-bold-white-150px{
-    font-family: "Inter", Helvetica;
-    font-size: 150px;
-    font-weight: 700;
-    font-style: italic;
+.inter-bold-white-150px {
+  font-family: "Inter", Helvetica;
+  font-size: 150px;
+  font-weight: 700;
+  font-style: italic;
 }
 
 /* ractangle5*/
@@ -116,7 +116,7 @@
   align-items: flex-start;
   align-self: center;
   display: flex;
-  margin-left: 70.0px;
+  margin-left: 70px;
 }
 
 .overlap-group1 {
@@ -144,7 +144,7 @@
   border-color: var(--raCcolor);
   border-radius: 200px 200px 0px 0px;
   filter: blur(38.94px);
- 
+
   mix-blend-mode: hard-light;
   position: absolute;
 
@@ -159,7 +159,7 @@
   border-color: var(--raCcolor);
   border-radius: 200px 200px 0px 0px;
   filter: blur(12.98px);
-  
+
   mix-blend-mode: hard-light;
   position: absolute;
 
@@ -173,8 +173,9 @@
   border: 8.44px solid;
   border-color: #6000ff33;
   border-radius: 200px 200px 0px 0px;
-  box-shadow: 0px 8.44px 6.49px #0e0014b2 , 0px 12.98px 16.87px #8300c0 , inset -0.84px 1.69px 0.84px #ffffff80;
- 
+  box-shadow: 0px 8.44px 6.49px #0e0014b2, 0px 12.98px 16.87px #8300c0,
+    inset -0.84px 1.69px 0.84px #ffffff80;
+
   mix-blend-mode: hard-light;
   position: absolute;
 
@@ -189,7 +190,7 @@
   border-color: #c882ff;
   border-radius: 200px 200px 0px 0px;
   filter: blur(1.3px);
- 
+
   position: absolute;
 
   height: 404px;
@@ -203,7 +204,7 @@
   border-color: #ffffff;
   border-radius: 200px 200px 0px 0px;
   filter: blur(0.87px);
-  
+
   position: absolute;
 
   height: 404px;
@@ -218,7 +219,7 @@
   border-color: var(--raCcolor);
   border-radius: 200px 200px 0px 0px;
   filter: blur(38.94px);
-  
+
   mix-blend-mode: hard-light;
   position: absolute;
 
@@ -233,7 +234,7 @@
   border-color: var(--raCcolor);
   border-radius: 200px 200px 0px 0px;
   filter: blur(12.98px);
-  
+
   mix-blend-mode: hard-light;
   position: absolute;
 
@@ -247,8 +248,9 @@
   border: 8.44px solid;
   border-color: #6000ff33;
   border-radius: 200px 200px 0px 0px;
-  box-shadow: 0px 8.44px 6.49px #0e0014b2 , 0px 12.98px 16.87px #8300c0 , inset -0.84px 1.69px 0.84px #ffffff80;
-  
+  box-shadow: 0px 8.44px 6.49px #0e0014b2, 0px 12.98px 16.87px #8300c0,
+    inset -0.84px 1.69px 0.84px #ffffff80;
+
   mix-blend-mode: hard-light;
   position: absolute;
 
@@ -262,8 +264,8 @@
   border: 5.19px solid;
   border-color: #c882ff;
   border-radius: 200px 200px 0px 0px;
-  filter: blur(1.3px);;
-  
+  filter: blur(1.3px);
+
   position: absolute;
 
   height: 654px;
@@ -276,8 +278,8 @@
   border: 2.6px solid;
   border-color: #ffffff;
   border-radius: 200px 200px 0px 0px;
-  filter: blur(0.87px);;
-  
+  filter: blur(0.87px);
+
   position: absolute;
 
   height: 654px;
