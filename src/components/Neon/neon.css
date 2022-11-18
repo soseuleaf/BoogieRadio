@@ -3,14 +3,17 @@
   --raCcolor : #cc00ff;
 }
 
-
 .container-center-horizontal{
   width: 100vw;
   height: 100vh;
   position: absolute;
+  top: 0;
+  left: 0;
   display : flex;
   justify-content: center;
   align-items : center;
+  background-color: #282c34;
+  overflow:auto;
 }
 
 .f_ont {
@@ -108,15 +111,12 @@
     font-style: italic;
 }
 
-
 /* ractangle5*/
 .group {
   align-items: flex-start;
   align-self: center;
   display: flex;
   margin-left: 70.0px;
-  min-width: 871px;
-  
 }
 
 .overlap-group1 {

@@ -33,11 +33,12 @@ const NightTheme = createTheme({
 
 function HansungRadio() {
   return (
-    <ThemeProvider theme={NightTheme}>
-      <CssBaseline />
+    <>
       <Neon content="BoogieRadio" />
-      <InformationSlide />
-    </ThemeProvider>
+      <ThemeProvider theme={NightTheme}>
+        <InformationSlide />
+      </ThemeProvider>
+    </>
   );
 }
 
