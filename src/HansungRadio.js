@@ -1,37 +1,37 @@
-import React from 'react';
+import React from "react";
 
 // COMPONENT
-import Main from './components/Main';
+import Main from "./components/Main";
 
 // MUI
-import {createTheme, ThemeProvider } from '@mui/material/styles'
-import { Paper, Grid, Button } from '@mui/material';
-import CssBaseline from '@mui/material/CssBaseline';
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { Paper, Grid, Button } from "@mui/material";
+import CssBaseline from "@mui/material/CssBaseline";
 
 const NightTheme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: "dark",
     primary: {
-      main: '#fbc02d',
+      main: "#fbc02d",
     },
     secondary: {
-      main: '#ef6c00',
+      main: "#ef6c00",
     },
     error: {
-      main: '#f44336',
+      main: "#f44336",
     },
     warning: {
-      main: '#e91e63',
+      main: "#e91e63",
     },
     background: {
-      default: '#000210',
-      paper: '#424242',
+      default: "#000210",
+      paper: "#424242",
     },
   },
-})
+});
 
 function HansungRadio() {
-  return(
+  return (
     <ThemeProvider theme={NightTheme}>
       <CssBaseline />
       <Main />
