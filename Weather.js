@@ -6,7 +6,7 @@ const api = {
     base: "https://api.openweathermap.org/data/2.5/",
 };
 
-function Weather({setTemp}) {
+function Weather() {
     const city = "Seoul";
     const url = `${api.base}weather?q=${city}&appid=${api.key}`;
     const [weather, setWeather] = useState("");
@@ -22,13 +22,12 @@ function Weather({setTemp}) {
         });
     });
     
-    setTemp(weather.temperature < 0 ? true : false);
     const iconurl=`http://openweathermap.org/img/wn/${weather.icon}@2x.png`;
 
     return (
     <>
         
-        <div className="weatherBox">
+        <div className="weatherBox" style={{backgroundColor:"white", width:"100px", height:"150px", textAlign:"center"}}>
             <div id="Temperature" style={{color:"black", fontSize:"10px"}}>{(weather.temperature -273.15).toFixed(2)}℃</div>
             <div id="WeatherDiv" style={{color:"black", fontSize:"10px"}}>{weather.main}</div>
             <img src={iconurl} style={{width:"20px", height:"20px"}}alt=" "/>
