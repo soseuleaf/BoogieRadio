@@ -12,7 +12,11 @@ import PostCard from "./PostCard";
 
 /* 화살표 클릭 시 카드가 슬라이드 되는 컴포넌트 */
 
-const SlidePost = ({ postData, modifyEmoji = (f) => f }) => {
+const SlidePost = ({
+  postData,
+  modifyEmoji = (f) => f,
+  openPost = (f) => f,
+}) => {
   // 배열의 몇번째 데이터를 불러올지 정하는 useState 입니다.
   const [index, setIndex] = useState(0);
   // 슬라이드가 종료되었는지 판단합니다.
@@ -101,7 +105,11 @@ const SlidePost = ({ postData, modifyEmoji = (f) => f }) => {
       <Arrow direction="left" />
       <Slide in={slideIn} direction={slideDirection}>
         <Box sx={{ width: 420, height: 348.5, backgroundColor: "transparent" }}>
-          <PostCard post={post} clickEmoji={clickEmoji} />
+          <PostCard
+            post={post}
+            clickEmoji={clickEmoji}
+            clickDetail={() => openPost(index)}
+          />
         </Box>
       </Slide>
       <Arrow direction="right" />

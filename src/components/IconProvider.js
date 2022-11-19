@@ -38,12 +38,18 @@ const DragableEmoji = ({ type, value, constraintsRef }) => {
   // 컴포넌트를 여러개 반환해야하기 때문에 배열을 선언
   let motionDivArray = [];
   // 그려야할 이모지를 받아와서 드래그가 가능한 div안에 넣어줌. 드래그 제한 공간도 지정.
-  const baseMotionDiv = (
+  const baseMotionDiv = (index) => (
     <motion.div
       className="icons"
+      key={index}
       drag
       whileTap={{ scale: 0.8 }}
       dragConstraints={constraintsRef}
+      style={{
+        display: "inline-block",
+        width: "min-content",
+        height: "min-content",
+      }}
     >
       <EmojiIcon index={type} />
     </motion.div>
@@ -51,7 +57,7 @@ const DragableEmoji = ({ type, value, constraintsRef }) => {
 
   // 이모지가 들어간 motion.div를 여러번 반복해서 배열에 넣어 줌.
   for (var i = 0; i < value; i++) {
-    motionDivArray.push(baseMotionDiv);
+    motionDivArray.push(baseMotionDiv(i));
   }
 
   // 배열을 리턴.
@@ -66,10 +72,20 @@ function IconProvider() {
 
   return (
     // 드래그 가능한 공간을 만들어 줌. 해당 크기는 css에 지정되어 있음, ref값도 지정
-    <motion.div className="drag-area" ref={constraintsRef}>
+    <motion.div
+      className="draggableSpaceDiv"
+      ref={constraintsRef}
+      style={{
+        background: "white",
+        width: "500px",
+        height: "500px",
+        borderRadius: "30px",
+      }}
+    >
       {/* 배열의 위치에 해당 하는 이모티콘을, 배열의 값에 해당하는 만큼 가져오는 컴포넌트?*/}
       {asd.map((value, index) => (
         <DragableEmoji
+          key={index + "-" + value}
           type={index}
           value={value}
           constraintsRef={constraintsRef}

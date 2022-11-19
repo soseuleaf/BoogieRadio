@@ -1,6 +1,7 @@
 :root {
   --mainColor: #2c18d6;
   --raCcolor: #cc00ff;
+  --clr-neon: rgb(255, 196, 0);
 }
 
 .container-center-horizontal {
