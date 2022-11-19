@@ -128,7 +128,6 @@ const MediaPlayer = ({ img, title, url }) => {
         height="0"
         url={url}
         loop={true}
-        mute={true}
         playing={playing}
         volume={volume}
         ref={setInstance}
@@ -160,7 +159,7 @@ const MediaPlayer = ({ img, title, url }) => {
           onChange={handleSeekChange}
           onChangeCommitted={handleSeekMouseUp}
           sx={{
-            // 예제에서 가져온 Css 디자인 입니다.
+            // example에서 가져온 Css 디자인 입니다.
             color: "#000",
             height: 4,
             "& .MuiSlider-thumb": {

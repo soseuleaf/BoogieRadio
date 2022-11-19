@@ -1,13 +1,12 @@
 // React Base
 import React, { useState } from "react";
-import NScrollDialog from "./FramerMenu/ScrollDialog";
-import Write from "./write";
 
 // MUI Material
 import { styled } from "@mui/material/styles";
 import { red, yellow, blue, green, purple } from "@mui/material/colors";
 import { Card, CardHeader, CardContent, CardActions } from "@mui/material";
 import {
+  Chip,
   Avatar,
   IconButton,
   Collapse,
@@ -32,7 +31,8 @@ import MediaPlayer from "./MediaPlayer";
 
 // User Data
 import { UserData } from "/src/data/UserData";
-import ScrollDialog from "./FramerMenu/ScrollDialog";
+//import ScrollDialog from "/src/components/menu/ScrollDialog";
+//import Write from "/src/components/write/Write";
 
 // 이미지 아이콘 반환용 함수
 const getEmoji = (index, color) => {
@@ -51,7 +51,7 @@ const getEmoji = (index, color) => {
 };
 
 // 플레이어, 유저 사연등을 표시하는 가드 입니다.
-const PostCard = ({ post, clickEmoji = (f) => f }) => {
+const PostCard = ({ post, clickEmoji = (f) => f, clickDetail = (f) => f }) => {
   // 더보기를 클릭하여 사연이 열렸는지 닫혔는지 판단합니다.
   const [expanded, setExpanded] = useState(false);
   // 사연의 user_id를 가져와서 userdata에서 해당 유저의 정보를 찾아서 저장합니다
@@ -94,12 +94,23 @@ const PostCard = ({ post, clickEmoji = (f) => f }) => {
         url={post.music_url}
       />
 
+      <Divider
+        sx={{
+          margin: "10px",
+        }}
+      >
+        <Chip label="Express your feelings!" />
+      </Divider>
+
       {/* 이모지 공간 입니다. */}
       <Stack
         direction="row" // 가로로 정렬
         divider={<Divider orientation="vertical" flexItem />} // 공간 나누기
         justifyContent="space-evenly" // 정렬 방법
         alignItems="center" // 가운데로
+        sx={{
+          margin: "10px",
+        }}
       >
         {/*
         이모지 값 수정이 최초로 일어나는 곳.
@@ -114,11 +125,10 @@ const PostCard = ({ post, clickEmoji = (f) => f }) => {
       </Stack>
 
       {/* 사연의 내용이 들어가는 공간 입니다. */}
-
       <CardActions sx={{ justifyContent: "flex-end" }}>
-        <NScrollDialog title={post.post_title} content={post.post_content} />
-
-        <Write />
+        <Button startIcon={<ImportContacts />} onClick={clickDetail}>
+          사연보기
+        </Button>
       </CardActions>
     </Card>
   );
