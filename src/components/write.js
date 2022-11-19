@@ -35,9 +35,6 @@ export default function Write(props) {
 
   return (
     <div>
-      <Button startIcon={<ImportContacts />} onClick={handleClickOpen("paper")}>
-        글쓰기
-      </Button>
       <Dialog
         open={open}
         onClose={handleClose}

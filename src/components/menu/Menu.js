@@ -14,6 +14,7 @@ import ScrollDialog from "./ScrollDialog";
 import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+
 const sidebar = (top) => ({
   open: {
     clipPath: `circle(800px at 40px ${top}px)`,

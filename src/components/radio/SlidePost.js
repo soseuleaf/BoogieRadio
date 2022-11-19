@@ -87,29 +87,25 @@ const SlidePost = ({ postData, modifyEmoji = (f) => f }) => {
   };
 
   return (
-    <div class="hi">
-      <Box
-        sx={{
-          position: "absolute",
-          left: "50%",
-          top: "320px",
-          transform: "translate(-50%, 0%)",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Arrow direction="left" />
-        <Slide in={slideIn} direction={slideDirection}>
-          <Box
-            sx={{ width: 420, height: 348.5, backgroundColor: "transparent" }}
-          >
-            <PostCard post={post} clickEmoji={clickEmoji} />
-          </Box>
-        </Slide>
-        <Arrow direction="right" />
-      </Box>
-    </div>
+    <Box
+      sx={{
+        position: "absolute",
+        left: "50%",
+        top: "320px",
+        transform: "translate(-50%, 0%)",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Arrow direction="left" />
+      <Slide in={slideIn} direction={slideDirection}>
+        <Box sx={{ width: 420, height: 348.5, backgroundColor: "transparent" }}>
+          <PostCard post={post} clickEmoji={clickEmoji} />
+        </Box>
+      </Slide>
+      <Arrow direction="right" />
+    </Box>
   );
 };
 

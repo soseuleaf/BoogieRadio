@@ -1,7 +1,5 @@
 // React Base
 import React, { useState } from "react";
-import NScrollDialog from "./FramerMenu/ScrollDialog";
-import Write from "./write";
 
 // MUI Material
 import { styled } from "@mui/material/styles";
@@ -32,7 +30,8 @@ import MediaPlayer from "./MediaPlayer";
 
 // User Data
 import { UserData } from "/src/data/UserData";
-import ScrollDialog from "./FramerMenu/ScrollDialog";
+import ScrollDialog from "/src/components/menu/ScrollDialog";
+import Write from "/src/components/write/Write";
 
 // 이미지 아이콘 반환용 함수
 const getEmoji = (index, color) => {
@@ -114,11 +113,15 @@ const PostCard = ({ post, clickEmoji = (f) => f }) => {
       </Stack>
 
       {/* 사연의 내용이 들어가는 공간 입니다. */}
-
       <CardActions sx={{ justifyContent: "flex-end" }}>
-        <NScrollDialog title={post.post_title} content={post.post_content} />
-
-        <Write />
+        <Button
+          startIcon={<ImportContacts />}
+          onClick={() => {
+            console.log("사연보기");
+          }}
+        >
+          사연보기
+        </Button>
       </CardActions>
     </Card>
   );

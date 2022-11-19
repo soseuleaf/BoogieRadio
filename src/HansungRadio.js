@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 
 // COMPONENT
-import InformationSlide from "./components/InformationSlide";
-import Neon from "./components/Neon/Neon";
-import SlidePost from "./components/SlidePost";
-import Menu from "./components/FramerMenu/Menu";
+import InformationSlide from "./components/informations/InformationSlide";
+import Neon from "./components/neon/Neon";
+import SlidePost from "./components/radio/SlidePost";
+import Menu from "./components/menu/Menu";
 import IconProvider from "./components/IconProvider";
 
 // MUI
@@ -60,9 +60,9 @@ function HansungRadio() {
     <>
       <Neon content="BoogieRadio" />
       <ThemeProvider theme={NightTheme}>
-        <Menu top={0} log={log} />
-        <SlidePost postData={postData} modifyEmoji={modifyEmoji} />
-
+        <div style={{ position: "relative", top: "120px", left: "50px" }}>
+          <SlidePost postData={postData} modifyEmoji={modifyEmoji} />
+        </div>
         <InformationSlide />
       </ThemeProvider>
     </>
