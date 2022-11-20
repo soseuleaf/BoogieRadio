@@ -5,7 +5,6 @@ import InformationSlide from "./components/informations/InformationSlide";
 import Neon from "./components/neon/Neon";
 import SlidePost from "./components/radio/SlidePost";
 import Menu from "./components/menu/Menu";
-import IconProvider from "./components/IconProvider";
 import Write from "./components/post/Write";
 import Read from "./components/post/Read";
 
@@ -128,7 +127,7 @@ function HansungRadio() {
         <Menu
           index={5}
           icon={<Info />}
-          content={<IconProvider />}
+          content={<Paper>asd</Paper>}
           top={400}
           isOpen={openMenuArray}
           onClick={openMenu}

@@ -56,7 +56,6 @@ const Menu = ({ index, icon, content, top, isOpen, onClick = (f) => f }) => {
           left: "0",
           bottom: "0",
           width: "50vw",
-          height: "90vh",
           margin: "10px",
           padding: "25px",
           paddingLeft: "80px",
