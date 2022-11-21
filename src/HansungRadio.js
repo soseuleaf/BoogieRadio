@@ -12,7 +12,14 @@ import QuizPage from "./components/quiz/QuizPage";
 // MUI
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Paper, Grid, Button, CssBaseline } from "@mui/material";
-import { Edit, Favorite, Person, Search, Info, Quiz } from "@mui/icons-material";
+import {
+  Edit,
+  Favorite,
+  Person,
+  Search,
+  Info,
+  Quiz,
+} from "@mui/icons-material";
 
 // Framer
 import { motion, useCycle } from "framer-motion";
@@ -50,7 +57,7 @@ function HansungRadio() {
   // 메뉴가 열렸는지 안 열렸는지 확인하는 hook
   const [isOpen, setOpen] = useState(0);
   const [isRead, setRead] = useState(false);
-  const [isSendQuiz, setSendQuiz] = useState(true);
+  const [isSendQuiz, setSendQuiz] = useState(false);
 
   const openMenuArray = useMemo(() => {
     console.log("메뉴오픈계산됨");
@@ -78,6 +85,10 @@ function HansungRadio() {
       copy[findIndex] = { ...copy[findIndex], emoji };
       setPostData(copy);
     }
+  };
+
+  const sendQuizAnswer = () => {
+    setSendQuiz(true);
   };
 
   const openPost = (index) => {
@@ -137,7 +148,11 @@ function HansungRadio() {
         <Menu
           index={6}
           icon={<Quiz />}
-          content={<QuizPage>asd</QuizPage>}
+          content={
+            <QuizPage isSended={isSendQuiz} sendQuizAnswer={sendQuizAnswer}>
+              asd
+            </QuizPage>
+          }
           top={500}
           isOpen={openMenuArray}
           onClick={openMenu}
