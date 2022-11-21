@@ -7,11 +7,12 @@ import SlidePost from "./components/radio/SlidePost";
 import Menu from "./components/menu/Menu";
 import Write from "./components/post/Write";
 import Read from "./components/post/Read";
+import QuizPage from "./components/quiz/QuizPage";
 
 // MUI
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Paper, Grid, Button, CssBaseline } from "@mui/material";
-import { Edit, Favorite, Person, Search, Info } from "@mui/icons-material";
+import { Edit, Favorite, Person, Search, Info, Quiz } from "@mui/icons-material";
 
 // Framer
 import { motion, useCycle } from "framer-motion";
@@ -49,10 +50,11 @@ function HansungRadio() {
   // 메뉴가 열렸는지 안 열렸는지 확인하는 hook
   const [isOpen, setOpen] = useState(0);
   const [isRead, setRead] = useState(false);
+  const [isSendQuiz, setSendQuiz] = useState(true);
 
   const openMenuArray = useMemo(() => {
     console.log("메뉴오픈계산됨");
-    let temp = [false, false, false, false, false, false];
+    let temp = [false, false, false, false, false, false, false];
     temp[isOpen] = true;
     return temp;
   }, [isOpen]);
@@ -129,6 +131,14 @@ function HansungRadio() {
           icon={<Info />}
           content={<Paper>asd</Paper>}
           top={400}
+          isOpen={openMenuArray}
+          onClick={openMenu}
+        />
+        <Menu
+          index={6}
+          icon={<Quiz />}
+          content={<QuizPage>asd</QuizPage>}
+          top={500}
           isOpen={openMenuArray}
           onClick={openMenu}
         />
