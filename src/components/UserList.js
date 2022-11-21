@@ -35,7 +35,7 @@ function User({ user }) {
     </List>
     );
 }
-
+//HansungRadio.js에 <UserList users={users}/> 넣기
 export default function UserList() {
     const users = [
         {
