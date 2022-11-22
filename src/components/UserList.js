@@ -22,11 +22,11 @@ function User({ user }) {
         <ListItem sx={{ height: 60 }}>
             <ListItemAvatar>
             <Avatar>
+                <img src={user.profile} style={{width:"20px", height:"20px"}}/>
             </Avatar>
             </ListItemAvatar>
             <ListItemText
             primary={user.username}
-            secondary={user.profile}
             />
         </ListItem>
         <Divider />
