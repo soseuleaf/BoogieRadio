@@ -8,6 +8,7 @@ import Menu from "./components/menu/Menu";
 import IconProvider from "./components/IconProvider";
 import Write from "./components/post/Write";
 import Read from "./components/post/Read";
+import UserList from "./components/UserList";
 
 // MUI
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -88,6 +89,64 @@ function HansungRadio() {
   const openMenu = (value) => {
     setOpen(value);
   };
+  const userdata = [
+    {
+        id: 1,
+        username: '준수',
+        profile: 'test.png'
+    },
+    {
+        id: 2,
+        username: '찬희',
+        profile: 'test.png'
+    },
+    {
+        id: 3,
+        username: '동우',
+        profile: 'test.png',
+    },
+    {
+        id: 4,
+        username: '예진',
+        profile: 'test.png'
+    },
+    {
+        id: 5,
+        username: '수민',
+        profile: 'test.png'
+    },
+    {
+        id: 6,
+        username: '승현',
+        profile: 'test.png',
+    },
+    {
+        id: 7,
+        username: '화성',
+        profile: 'test.png'
+    },
+    {
+        id: 8,
+        username: '두부',
+        profile: 'test.png'
+    },
+    {
+        id: 9,
+        username: 'Myuu',
+        profile: 'test.png',
+    },
+    {
+        id: 10,
+        username: '햄찌',
+        profile: 'test.png',
+    },
+    {
+        id: 11,
+        username: '오렌ㅈi맛⑨름໒꒱',
+        profile: 'test.png',
+    },
+
+  ];
 
   return (
     <>
@@ -120,7 +179,8 @@ function HansungRadio() {
         <Menu
           index={4}
           icon={<Search />}
-          content={<Paper sx={{ width: "100%", height: "100%" }}> 4번 </Paper>}
+          content={<Paper sx={{ width: "100%", height: "100%" }}> 4번
+          <UserList userdata={userdata}/> </Paper>}
           top={300}
           isOpen={openMenuArray}
           onClick={openMenu}
