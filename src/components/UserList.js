@@ -22,7 +22,6 @@ function User({ user }) {
         <ListItem sx={{ height: 60 }}>
             <ListItemAvatar>
             <Avatar>
-                <ImageIcon />
             </Avatar>
             </ListItemAvatar>
             <ListItemText
@@ -35,66 +34,9 @@ function User({ user }) {
     </List>
     );
 }
-//HansungRadio.js에 <UserList users={users}/> 넣기
-export default function UserList() {
-    const users = [
-        {
-            id: 1,
-            username: '준수',
-            profile: 'test.png'
-        },
-        {
-            id: 2,
-            username: '찬희',
-            profile: 'test.png'
-        },
-        {
-            id: 3,
-            username: '동우',
-            profile: 'test.png',
-        },
-        {
-            id: 4,
-            username: '예진',
-            profile: 'test.png'
-        },
-        {
-            id: 5,
-            username: '수민',
-            profile: 'test.png'
-        },
-        {
-            id: 6,
-            username: '승현',
-            profile: 'test.png',
-        },
-        {
-            id: 7,
-            username: '화성',
-            profile: 'test.png'
-        },
-        {
-            id: 8,
-            username: '두부',
-            profile: 'test.png'
-        },
-        {
-            id: 9,
-            username: 'Myuu',
-            profile: 'test.png',
-        },
-        {
-            id: 10,
-            username: '햄찌',
-            profile: 'test.png',
-        },
-        {
-            id: 11,
-            username: '오렌ㅈi맛⑨름໒꒱',
-            profile: 'test.png',
-        },
-
-    ]
+//HansungRadio.js에 <UserList userdata={userdata}/> 넣기
+export default function UserList({userdata}) {
+    
     return (
     <Paper
         sx={{
@@ -102,7 +44,14 @@ export default function UserList() {
         objectFit: "cover",
         }}
     >
-        {users.map(user => (<User user={user} key={user.id} />))}
+        {userdata.map((user) => (<User user={user} key={user.id} />))}
     </Paper>
     );
 }
+/*
+UserList.js 들어갈 공간에다가
+import Userlist from "./components./UserList";
+import userdata from "./components./userdata";
+<UserList userdata={userdata}/>추가
+
+*/
