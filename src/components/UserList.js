@@ -21,7 +21,7 @@ function User({ user }) {
         <Box sx={{}}>
         <ListItem sx={{ height: 60 }}>
             <ListItemAvatar>
-                <Avatar src={user.profile}size={100}/>
+                <img src={user.profile}/>
             </ListItemAvatar>
             <ListItemText
             primary={user.username}

@@ -10,6 +10,20 @@ import Write from "./components/post/Write";
 import Read from "./components/post/Read";
 import UserList from "./components/UserList";
 
+//사진 npm install file-loader --save-dev
+/*
+import {pf1} from "./image/pf1.jpg";
+import {pf2} from "./image/pf2.jpg";
+import {pf3} from "./image/pf3.png";
+import {pf4} from "./image/pf4.jpg";
+import {pf5} from "./image/pf5.jpg";
+import {pf6} from "./image/pf6.jpg";
+import {pf7} from "./image/pf7.jpeg";
+import {pf8} from "./image/pf8.jpg";
+import {pf9} from "./image/pf9.jpg";
+import {pf10} from "./image/pf10.png";
+import {pf11} from "./image/pf11.jpg";
+*/
 
 // MUI
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -94,57 +108,57 @@ function HansungRadio() {
     {
         id: 1,
         username: '준수',
-        profile: 'https://en.wikipedia.org/wiki/Leaf#/media/File:Lisc_lipy.jpg'
+        profile: './image/pf1.jpg',
     },
     {
         id: 2,
         username: '찬희',
-        profile: 'https://en.wikipedia.org/wiki/Flower#/media/File:Autumn_Red_peaches.jpg'
+        profile: './image/pf1.jpg',
     },
     {
         id: 3,
         username: '동우',
-        profile: 'https://en.wikipedia.org/wiki/Fruit#/media/File:DewberriesWeb.jpg',
+        profile: './image/pf1.jpg',
     },
     {
         id: 4,
         username: '예진',
-        profile: 'https://en.wikipedia.org/wiki/Chocolate#/media/File:Chocolate_(blue_background).jpg'
+        profile: './image/pf1.jpg',
     },
     {
         id: 5,
         username: '수민',
-        profile: 'https://en.wikipedia.org/wiki/Rabbit#/media/File:BRACHYLAGUS_IDAHOENSIS.jpg'
+        profile: './image/pf1.jpg',
     },
     {
         id: 6,
         username: '승현',
-        profile: 'https://en.wikipedia.org/wiki/Map#/media/File:World_Map_1689.JPG',
+        profile: './image/pf1.jpg',
     },
     {
         id: 7,
         username: '화성',
-        profile: 'https://en.wikipedia.org/wiki/Mars#/media/File:Tharsis_and_Valles_Marineris_-_Mars_Orbiter_Mission_(30055660701).png'
+        profile: './image/pf1.jpg',
     },
     {
         id: 8,
         username: '두부',
-        profile: 'https://en.wikipedia.org/wiki/Tofu#/media/File:Japanese_SilkyTofu_(Kinugoshi_Tofu).JPG'
+        profile: './image/pf1.jpg',
     },
     {
         id: 9,
         username: 'Myuu',
-        profile: 'https://en.wikipedia.org/wiki/Cookie#/media/File:2ChocolateChipCookies.jpg',
+        profile: './image/pf1.jpg',
     },
     {
         id: 10,
         username: '햄찌',
-        profile: 'https://en.wikipedia.org/wiki/Hamster#/media/File:Peach_the_pet_hamster.jpg',
+        profile: './image/pf1.jpg',
     },
     {
         id: 11,
         username: '오렌ㅈi맛⑨름໒꒱',
-        profile: 'https://en.wikipedia.org/wiki/Cream_soda#/media/File:JapaneseStyle-CreamSoda-inTokyo-April29-2019.jpg',
+        profile: './image/pf1.jpg',
     },
 
   ];
