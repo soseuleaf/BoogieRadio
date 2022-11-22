@@ -10,6 +10,7 @@ import Write from "./components/post/Write";
 import Read from "./components/post/Read";
 import UserList from "./components/UserList";
 
+
 // MUI
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Paper, Grid, Button, CssBaseline } from "@mui/material";
@@ -93,57 +94,57 @@ function HansungRadio() {
     {
         id: 1,
         username: '준수',
-        profile: 'test.png'
+        profile: 'https://en.wikipedia.org/wiki/Leaf#/media/File:Lisc_lipy.jpg'
     },
     {
         id: 2,
         username: '찬희',
-        profile: 'test.png'
+        profile: 'https://en.wikipedia.org/wiki/Flower#/media/File:Autumn_Red_peaches.jpg'
     },
     {
         id: 3,
         username: '동우',
-        profile: 'test.png',
+        profile: 'https://en.wikipedia.org/wiki/Fruit#/media/File:DewberriesWeb.jpg',
     },
     {
         id: 4,
         username: '예진',
-        profile: 'test.png'
+        profile: 'https://en.wikipedia.org/wiki/Chocolate#/media/File:Chocolate_(blue_background).jpg'
     },
     {
         id: 5,
         username: '수민',
-        profile: 'test.png'
+        profile: 'https://en.wikipedia.org/wiki/Rabbit#/media/File:BRACHYLAGUS_IDAHOENSIS.jpg'
     },
     {
         id: 6,
         username: '승현',
-        profile: 'test.png',
+        profile: 'https://en.wikipedia.org/wiki/Map#/media/File:World_Map_1689.JPG',
     },
     {
         id: 7,
         username: '화성',
-        profile: 'test.png'
+        profile: 'https://en.wikipedia.org/wiki/Mars#/media/File:Tharsis_and_Valles_Marineris_-_Mars_Orbiter_Mission_(30055660701).png'
     },
     {
         id: 8,
         username: '두부',
-        profile: 'test.png'
+        profile: 'https://en.wikipedia.org/wiki/Tofu#/media/File:Japanese_SilkyTofu_(Kinugoshi_Tofu).JPG'
     },
     {
         id: 9,
         username: 'Myuu',
-        profile: 'test.png',
+        profile: 'https://en.wikipedia.org/wiki/Cookie#/media/File:2ChocolateChipCookies.jpg',
     },
     {
         id: 10,
         username: '햄찌',
-        profile: 'test.png',
+        profile: 'https://en.wikipedia.org/wiki/Hamster#/media/File:Peach_the_pet_hamster.jpg',
     },
     {
         id: 11,
         username: '오렌ㅈi맛⑨름໒꒱',
-        profile: 'test.png',
+        profile: 'https://en.wikipedia.org/wiki/Cream_soda#/media/File:JapaneseStyle-CreamSoda-inTokyo-April29-2019.jpg',
     },
 
   ];

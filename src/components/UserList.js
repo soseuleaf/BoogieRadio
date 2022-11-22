@@ -10,7 +10,7 @@ import ImageIcon from "@mui/icons-material/Image";
 import ListItemText from "@mui/material/ListItemText";
 
 import Box from "@mui/material/Box";
-
+//문제: <Avatar>에 img src를 일반적인 링크로도 넣어봤는데 그냥 안보임... 
 function User({ user }) {
     return (
     <List
@@ -21,9 +21,7 @@ function User({ user }) {
         <Box sx={{}}>
         <ListItem sx={{ height: 60 }}>
             <ListItemAvatar>
-            <Avatar>
-                <img src={user.profile} style={{width:"20px", height:"20px"}}/>
-            </Avatar>
+            <img src={user.profile} style={{width:"100px", height:"100px"}}/>
             </ListItemAvatar>
             <ListItemText
             primary={user.username}
@@ -44,7 +42,7 @@ export default function UserList({userdata}) {
         objectFit: "cover",
         }}
     >
-        {userdata.map((user) => (<User user={user} key={user.id} />))}
+        {userdata.map((user) => (<User user={user} key={user.id}/>))}
     </Paper>
     );
 }
