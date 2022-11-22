@@ -49,7 +49,5 @@ export default function UserList({userdata}) {
 /*
 UserList.js 들어갈 공간에다가
 import Userlist from "./components./UserList";
-import userdata from "./components./userdata";
 <UserList userdata={userdata}/>추가
-
 */
