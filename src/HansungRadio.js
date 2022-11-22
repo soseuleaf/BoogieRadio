@@ -179,7 +179,7 @@ function HansungRadio() {
         <Menu
           index={4}
           icon={<Search />}
-          content={<Paper sx={{ width: "100%", height: "100%" }}> 4번
+          content={<Paper sx={{ width: "100%", height: "100%" }}>
           <UserList userdata={userdata}/> </Paper>}
           top={300}
           isOpen={openMenuArray}
