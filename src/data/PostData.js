@@ -32,7 +32,8 @@ export let PostData = [
     },
   
     {
-      uuid: 3,      user_id: 2,
+      uuid: 3,      
+      user_id: 2,
   
       music_img: "test2.png",
       music_title: "허각 - 혼자, 한잔",
