@@ -10,21 +10,6 @@ import Write from "./components/post/Write";
 import Read from "./components/post/Read";
 import UserList from "./components/UserList";
 
-//사진 npm install file-loader --save-dev
-/*
-import {pf1} from "./image/pf1.jpg";
-import {pf2} from "./image/pf2.jpg";
-import {pf3} from "./image/pf3.png";
-import {pf4} from "./image/pf4.jpg";
-import {pf5} from "./image/pf5.jpg";
-import {pf6} from "./image/pf6.jpg";
-import {pf7} from "./image/pf7.jpeg";
-import {pf8} from "./image/pf8.jpg";
-import {pf9} from "./image/pf9.jpg";
-import {pf10} from "./image/pf10.png";
-import {pf11} from "./image/pf11.jpg";
-*/
-
 // MUI
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Paper, Grid, Button, CssBaseline } from "@mui/material";
@@ -194,8 +179,7 @@ function HansungRadio() {
         <Menu
           index={4}
           icon={<Search />}
-          content={<Paper sx={{ width: "100%", height: "100%" }}>
-          <UserList userdata={userdata}/> </Paper>}
+          content={<UserList userdata={userdata}/>}
           top={300}
           isOpen={openMenuArray}
           onClick={openMenu}
