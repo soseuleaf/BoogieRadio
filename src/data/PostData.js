@@ -12,7 +12,7 @@ export let PostData = [
   
       backgroundColor: "#ff7c7c",
   
-      emoji: [5, 4, 3, 2, 1],
+      emoji: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
     },
   
     {
@@ -28,7 +28,7 @@ export let PostData = [
   
       backColor: "#ffb6b9",
   
-      emoji: [5, 4, 3, 2, 1],
+      emoji: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
     },
   
     {
@@ -44,7 +44,7 @@ export let PostData = [
   
       backColor: "#8deaff",
   
-      emoji: [5, 4, 3, 2, 1],
+      emoji: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
     },
   
     {
@@ -61,7 +61,7 @@ export let PostData = [
   
       backColor: "#ffe084",
   
-      emoji: [5, 4, 3, 2, 1],
+      emoji: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
     },
   
     {
@@ -77,7 +77,7 @@ export let PostData = [
   
       backColor: "#d9d9d9",
   
-      emoji: [5, 4, 3, 2, 1],
+      emoji: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
     },
 
     {
@@ -93,7 +93,7 @@ export let PostData = [
     
         backColor: "#8deaff",
     
-        emoji: [5, 4, 3, 2, 1],
+        
       },
 
       {
@@ -109,7 +109,7 @@ export let PostData = [
     
         backColor: "#8deaff",
     
-        emoji: [5, 4, 3, 2, 1],
+        
       },
 
       {
@@ -125,7 +125,7 @@ export let PostData = [
     
         backColor: "#8deaff",
     
-        emoji: [5, 4, 3, 2, 1],
+       
       },
 
       {
@@ -141,7 +141,7 @@ export let PostData = [
     
         backColor: "#8deaff",
     
-        emoji: [5, 4, 3, 2, 1],
+       
       },
 
       {
@@ -158,7 +158,7 @@ export let PostData = [
     
         backColor: "#8deaff",
     
-        emoji: [5, 4, 3, 2, 1],
+        
       },
   ];
  
