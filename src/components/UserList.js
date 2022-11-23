@@ -2,47 +2,50 @@ import * as React from "react";
 
 import { Paper } from "@mui/material";
 import ListItem from "@mui/material/ListItem";
-import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import ListItemText from "@mui/material/ListItemText";
 import {FixedSizeList} from "react-window";
+//import {Autosizer} from "react-virtualized-auto-sizer";
 
 import Box from "@mui/material/Box";
+import userdata from "./userdata";
 
-function User({ user }) {
+function User({index, style}) {
     return (
-    <List
-        sx={{
-        width: 500,
-        }}
-    >
-        <Box sx={{}}>
-        <ListItem sx={{ height: 60 }}>
+        <Box>
+        <ListItem style={{...style,...{width:"500px"}}} key={index}>
             <ListItemAvatar>
-                <Avatar src={user.profile}/>
+                <Avatar src={userdata[index].profile}/>
             </ListItemAvatar>
             <ListItemText
-            primary={user.username}
+            primary={userdata[index].username}
             />
         </ListItem>
         <Divider />
         </Box>
-    </List>
     );
 }
 
-export default function UserList({userdata}) {
+
+export default function UserList() {
     
     return (
         <Paper
         sx={{
-        width: 500,
-        objectFit: "cover",
+            objectFit: "cover",
         }}
         >
-            {userdata.map((user) => (<User user={user} key={user.id}/>))}
+            
+            <FixedSizeList
+                itemSize={5}
+                itemCount={userdata.length}
+            >
+                {User}
+            </FixedSizeList>
+                
+
         </Paper>
         
     );
