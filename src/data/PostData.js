@@ -3,7 +3,7 @@ export let PostData = [
       uuid: 1,
       user_id: 0,
   
-      music_img: "test2.png",
+      music_img: "profile1.jpg",
       music_title: "(G)I-DLE - Nxde",
       music_url: "https://youtu.be/fCO7f0SmrDc",
   
@@ -19,7 +19,7 @@ export let PostData = [
       uuid: 2,
       user_id: 1,
   
-      music_img: "test2.png",
+      music_img: "profile2.jpg",
       music_title: "#안녕 - 헤요 (2022)",
       music_url: "https://www.youtube.com/watch?v=hiXwr-4oso8",
   
@@ -35,7 +35,7 @@ export let PostData = [
       uuid: 3,      
       user_id: 2,
   
-      music_img: "test2.png",
+      music_img: "profile3.jpg",
       music_title: "허각 - 혼자, 한잔",
       music_url: "https://www.youtube.com/watch?v=0-wtiJM8U2I",
     
@@ -51,7 +51,7 @@ export let PostData = [
       uuid: 4,
       user_id: 3,
   
-      music_img: "test2.png",
+      music_img: "profile4.jpg",
       music_title: "ph-1 - Like Me",
       music_url:
           "https://soundcloud.com/l2share52/ph-1-like-me-prod-by-mokyo?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
@@ -68,7 +68,7 @@ export let PostData = [
       uuid: 5,
       user_id: 4,
   
-      music_img: "test2.png",
+      music_img: "profile5.jpg",
         music_title: "WSG워너비 (가야G) - 그때 그 순간 그대로 (그그그)",
         music_url: "https://www.youtube.com/watch?v=ZKZce9BtJSs",
     
@@ -84,7 +84,7 @@ export let PostData = [
         uuid: 6,
         user_id: 5,
     
-        music_img: "test2.png",
+        music_img: "profile6.jpg",
         music_title: "테이 - Monologue",
         music_url: "https://www.youtube.com/watch?v=i-u2TTV22UE",
     
@@ -100,7 +100,7 @@ export let PostData = [
         uuid: 7,
         user_id: 6,
     
-        music_img: "test2.png",
+        music_img: "profile7.jpg",
         music_title: "호미들 - 사이렌",
         music_url: "https://www.youtube.com/watch?v=vvTO3c-h0ZI",
     
@@ -116,7 +116,7 @@ export let PostData = [
         uuid: 8,
         user_id: 7,
     
-        music_img: "test2.png",
+        music_img: "profile8.jpg",
         music_title: "LE SSERAFIM - ANTIFRAGILE",
         music_url: "https://www.youtube.com/watch?v=pyf8cbqyfPs",
     
@@ -132,7 +132,7 @@ export let PostData = [
         uuid: 9,
         user_id: 8,
     
-        music_img: "test2.png",
+        music_img: "profile9.jpg",
         music_title: "허각 - 혼자, 한잔",
         music_url: "https://www.youtube.com/watch?v=0-wtiJM8U2I",
     
@@ -148,7 +148,7 @@ export let PostData = [
         uuid: 10,
         user_id: 9,
     
-        music_img: "test2.png",
+        music_img: "profile10.jpg",
         music_title: "ph-1 - Cupid",
         music_url:
           "https://soundcloud.com/voraporn-kankloy/ph-1-cupid-featpenomeco?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
