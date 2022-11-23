@@ -95,8 +95,8 @@ const SlidePost = ({
       sx={{
         position: "absolute",
         left: "50%",
-        top: "320px",
-        transform: "translate(-50%, 0%)",
+        top: "200px",
+        transform: "translate(-57%, 0%)",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",

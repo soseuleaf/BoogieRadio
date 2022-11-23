@@ -103,8 +103,8 @@ function HansungRadio() {
 
   return (
     <>
-      <Neon content="BoogieRadio" />
       <ThemeProvider theme={NightTheme}>
+        <Neon content="BoogieRadio" />
         <Menu
           index={1}
           icon={<Edit />}
