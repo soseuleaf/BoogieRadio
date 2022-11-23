@@ -12,7 +12,7 @@ export let PostData = [
   
       backgroundColor: "#ff7c7c",
   
-      emoji: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
+      emoji: [5, 4, 3, 2, 1],
     },
   
     {
@@ -28,7 +28,7 @@ export let PostData = [
   
       backColor: "#ffb6b9",
   
-      emoji: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
+      emoji: [5, 4, 3, 2, 1],
     },
   
     {
@@ -44,7 +44,7 @@ export let PostData = [
   
       backColor: "#8deaff",
   
-      emoji: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
+      emoji: [5, 4, 3, 2, 1],
     },
   
     {
@@ -61,7 +61,7 @@ export let PostData = [
   
       backColor: "#ffe084",
   
-      emoji: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
+      emoji: [5, 4, 3, 2, 1],
     },
   
     {
@@ -77,7 +77,7 @@ export let PostData = [
   
       backColor: "#d9d9d9",
   
-      emoji: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
+      emoji: [5, 4, 3, 2, 1],
     },
 
     {
@@ -93,7 +93,7 @@ export let PostData = [
     
         backColor: "#8deaff",
     
-        emoji: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
+        emoji: [5, 4, 3, 2, 1],
       },
 
       {
@@ -109,7 +109,7 @@ export let PostData = [
     
         backColor: "#8deaff",
     
-        emoji: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
+        emoji: [5, 4, 3, 2, 1],
       },
 
       {
@@ -125,14 +125,14 @@ export let PostData = [
     
         backColor: "#8deaff",
     
-        emoji: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
+        emoji: [5, 4, 3, 2, 1],
       },
 
       {
         uuid: 9,
         user_id: 8,
     
-        music_img: "profile9.jpg",
+        music_img: "profile3.jpg",
         music_title: "허각 - 혼자, 한잔",
         music_url: "https://www.youtube.com/watch?v=0-wtiJM8U2I",
     
@@ -141,7 +141,7 @@ export let PostData = [
     
         backColor: "#8deaff",
     
-        emoji: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
+        emoji: [5, 4, 3, 2, 1],
       },
 
       {
@@ -158,7 +158,7 @@ export let PostData = [
     
         backColor: "#8deaff",
     
-        emoji: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
+        emoji: [5, 4, 3, 2, 1],
       },
   ];
  
