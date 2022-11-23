@@ -3,21 +3,41 @@ import React, { useState, useEffect, useRef, useMemo } from "react";
 // COMPONENT
 import InformationSlide from "./components/informations/InformationSlide";
 import Neon from "./components/neon/Neon";
+import Neonoff from "./components/Neon/NeonOff";
 import SlidePost from "./components/radio/SlidePost";
 import Menu from "./components/menu/Menu";
+import IconProvider from "./components/IconProvider";
 import Write from "./components/post/Write";
 import Read from "./components/post/Read";
+import Top10list from "./components/post/top10list";
+import QuizPage from "./components/quiz/QuizPage";
+import Userlist from "./components/Userlist";
 
 // MUI
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Paper, Grid, Button, CssBaseline } from "@mui/material";
-import { Edit, Favorite, Person, Search, Info } from "@mui/icons-material";
+import {
+  Edit,
+  Favorite,
+  Person,
+  Search,
+  Info,
+  Quiz,
+} from "@mui/icons-material";
+import LightIcon from "@mui/icons-material/Light";
 
 // Framer
 import { motion, useCycle } from "framer-motion";
 
 // Data
 import { PostData } from "/src/data/PostData";
+//faker
+import { faker } from "@faker-js/faker";
+
+const userData = [...Array(50)].map(() => ({
+  name: faker.name.fullName(),
+  avatar: faker.internet.avatar(),
+}));
 
 const NightTheme = createTheme({
   palette: {
@@ -44,11 +64,14 @@ const NightTheme = createTheme({
 const loadUserPost = () => [...PostData];
 
 function HansungRadio() {
+  var [neon, setNeon] = useState(true);
+
   // 글 데이터를 저장하는 hook
   const [postData, setPostData] = useState(loadUserPost());
   // 메뉴가 열렸는지 안 열렸는지 확인하는 hook
   const [isOpen, setOpen] = useState(0);
   const [isRead, setRead] = useState(false);
+  const [isSendQuiz, setSendQuiz] = useState(false);
 
   const openMenuArray = useMemo(() => {
     console.log("메뉴오픈계산됨");
@@ -87,11 +110,18 @@ function HansungRadio() {
   const openMenu = (value) => {
     setOpen(value);
   };
+  const sendQuizAnswer = () => {
+    setSendQuiz(true);
+  };
 
   return (
     <>
-      <Neon content="BoogieRadio" />
       <ThemeProvider theme={NightTheme}>
+        {neon ? (
+          <Neon content="BoogieRadio" />
+        ) : (
+          <Neonoff content="BoogieRadio" />
+        )}
         <Menu
           index={1}
           icon={<Edit />}
@@ -103,7 +133,7 @@ function HansungRadio() {
         <Menu
           index={2}
           icon={<Favorite />}
-          content={<Paper sx={{ width: "100%", height: "100%" }}> 2번 </Paper>}
+          content={<Top10list postData={postData} userData={userData} />}
           top={100}
           isOpen={openMenuArray}
           onClick={openMenu}
@@ -119,7 +149,7 @@ function HansungRadio() {
         <Menu
           index={4}
           icon={<Search />}
-          content={<Paper sx={{ width: "100%", height: "100%" }}> 4번 </Paper>}
+          content={<Userlist postData={userData} />}
           top={300}
           isOpen={openMenuArray}
           onClick={openMenu}
@@ -127,8 +157,20 @@ function HansungRadio() {
         <Menu
           index={5}
           icon={<Info />}
-          content={<Paper>asd</Paper>}
+          content={<IconProvider />}
           top={400}
+          isOpen={openMenuArray}
+          onClick={openMenu}
+        />
+        <Menu
+          index={6}
+          icon={<Quiz />}
+          content={
+            <QuizPage isSended={isSendQuiz} sendQuizAnswer={sendQuizAnswer}>
+              asd
+            </QuizPage>
+          }
+          top={500}
           isOpen={openMenuArray}
           onClick={openMenu}
         />
@@ -144,8 +186,23 @@ function HansungRadio() {
             postData={postData}
             modifyEmoji={modifyEmoji}
             openPost={openPost}
+            userData={userData}
           />
         </motion.div>
+
+        <Button
+          onClick={() => {
+            setNeon(!neon);
+          }}
+          startIcon={<LightIcon sx={{ width: 200, height: 200 }} />}
+          sx={{
+            position: "absolute",
+            top: 0,
+            right: 80,
+            overflow: "auto",
+            color: neon ? "" : "grey",
+          }}
+        ></Button>
         <InformationSlide />
       </ThemeProvider>
     </>

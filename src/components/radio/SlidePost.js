@@ -16,6 +16,7 @@ const SlidePost = ({
   postData,
   modifyEmoji = (f) => f,
   openPost = (f) => f,
+  userData,
 }) => {
   // 배열의 몇번째 데이터를 불러올지 정하는 useState 입니다.
   const [index, setIndex] = useState(0);
@@ -26,6 +27,7 @@ const SlidePost = ({
 
   // PostData json 배열의 해당 값을 가져오고, postdata의 길이를 저장합니다.
   const post = postData[index];
+  const user = userData[index];
   const postLength = postData.length;
 
   /* 
@@ -95,8 +97,8 @@ const SlidePost = ({
       sx={{
         position: "absolute",
         left: "50%",
-        top: "320px",
-        transform: "translate(-50%, 0%)",
+        top: "200px",
+        transform: "translate(-57%, 0%)",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -106,6 +108,7 @@ const SlidePost = ({
       <Slide in={slideIn} direction={slideDirection}>
         <Box sx={{ width: 420, height: 348.5, backgroundColor: "transparent" }}>
           <PostCard
+            user={user}
             post={post}
             clickEmoji={clickEmoji}
             clickDetail={() => openPost(index)}

@@ -1,9 +1,5 @@
 import React, { useState, useReducer } from "react";
 
-// Componenets
-import Traffic from "./Traffic";
-import Weather from "./Weather";
-
 // MUI
 import { Box, Paper, Slide, IconButton } from "@mui/material";
 import { Theme } from "@mui/material/styles";
@@ -15,11 +11,23 @@ import { WbSunny, DirectionsCar } from "@mui/icons-material";
 function chagneContent(state, action) {
   switch (action.type) {
     case "Weather":
-      return <Paper elevation={4}>{/* <Weather /> 시연 때만 키자*/}</Paper>;
+      return (
+        <Paper elevation={4}>
+          <Box sx={{ width: 500, height: 500 }}>In Content</Box>
+        </Paper>
+      );
     case "Traffic":
       return (
         <Paper elevation={4}>
-          <Traffic />
+          <Box sx={{ width: 500, height: 500 }}>
+            <iframe
+              src="https://sxxminkim.github.io/map/"
+              style={{
+                width: "85%",
+                height: "85%",
+              }}
+            />
+          </Box>
         </Paper>
       );
     default:

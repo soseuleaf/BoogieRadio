@@ -42,8 +42,9 @@ export default function Write({ addNewPost = (f) => f }) {
   return (
     <Paper
       sx={{
+        width: 380,
         padding: "25px",
-        height: "95%",
+        height: 680,
         display: "flex",
         flexDirection: "column",
       }}
@@ -56,33 +57,27 @@ export default function Write({ addNewPost = (f) => f }) {
           flexDirection: "column",
           display: "flex",
           justifyContent: "space-around",
+          width: 380,
         }}
       >
-        <Typography variant="h3">사연 쓰기</Typography>
+        <Typography variant="h3">
+          <TextField
+            id="title"
+            label="사연 제목"
+            variant="standard"
+            onChange={(e) => setTitle(e.target.value)}
+            value={title}
+          />
+          <TextField
+            id="music_title"
+            label="음악 제목"
+            variant="standard"
+            onChange={(e) => setMusicTitle(e.target.value)}
+            value={musicTitle}
+          />
+        </Typography>
         <Divider />
-        <TextField
-          id="music_title"
-          label="음악 제목"
-          variant="standard"
-          onChange={(e) => setMusicTitle(e.target.value)}
-          value={musicTitle}
-        />
-        <TextField
-          id="music_url"
-          label="음악 주소"
-          helperText="유튜브, 사운드 클라우드 지원"
-          variant="standard"
-          onChange={(e) => setMusicUrl(e.target.value)}
-          value={musicUrl}
-        />
-        <Divider />
-        <TextField
-          id="title"
-          label="사연 제목"
-          variant="standard"
-          onChange={(e) => setTitle(e.target.value)}
-          value={title}
-        />
+
         <CustomizedDividers />
         <TextField
           multiline
@@ -95,19 +90,28 @@ export default function Write({ addNewPost = (f) => f }) {
           value={content}
           sx={{
             marginTop: "20px",
+            width: 376,
           }}
         />
+        <TextField
+          id="music_url"
+          label="음악 주소"
+          helperText="유튜브, 사운드 클라우드 지원"
+          variant="standard"
+          onChange={(e) => setMusicUrl(e.target.value)}
+          value={musicUrl}
+        />
+        <Button
+          variant="contained"
+          endIcon={<Send />}
+          onClick={sendPostToMain}
+          sx={{
+            flex: 1,
+          }}
+        >
+          사연 보내기
+        </Button>
       </Box>
-      <Button
-        variant="contained"
-        endIcon={<Send />}
-        onClick={sendPostToMain}
-        sx={{
-          flex: 1,
-        }}
-      >
-        사연 보내기
-      </Button>
     </Paper>
   );
 }

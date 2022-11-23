@@ -30,7 +30,7 @@ import {
 import MediaPlayer from "./MediaPlayer";
 
 // User Data
-import { UserData } from "/src/data/UserData";
+//import { UserData } from "/src/data/UserData";
 //import ScrollDialog from "/src/components/menu/ScrollDialog";
 //import Write from "/src/components/write/Write";
 
@@ -51,11 +51,15 @@ const getEmoji = (index, color) => {
 };
 
 // 플레이어, 유저 사연등을 표시하는 가드 입니다.
-const PostCard = ({ post, clickEmoji = (f) => f, clickDetail = (f) => f }) => {
+const PostCard = ({
+  post,
+  clickEmoji = (f) => f,
+  clickDetail = (f) => f,
+  user,
+}) => {
   // 더보기를 클릭하여 사연이 열렸는지 닫혔는지 판단합니다.
   const [expanded, setExpanded] = useState(false);
   // 사연의 user_id를 가져와서 userdata에서 해당 유저의 정보를 찾아서 저장합니다
-  const userData = UserData[post.user_id];
 
   // 더보기 버튼 클릭 시 동작하는 함수 입니다.
   const handleExpandClick = () => {
@@ -81,11 +85,11 @@ const PostCard = ({ post, clickEmoji = (f) => f, clickDetail = (f) => f }) => {
       <CardHeader
         avatar={
           /* 유저의 프로필 이미지가 들어갈 둥근 이미지 입니다. */
-          <Avatar src={`/images/${userData.user_profile}`} />
+          <Avatar src={user.avatar} />
         }
         title={
           /* 유저의 이름이 들어갈 공간 입니다. */
-          userData.user_name
+          user.name
         }
       />
       <MediaPlayer

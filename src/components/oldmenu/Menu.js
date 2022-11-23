@@ -10,7 +10,7 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import ImageIcon from "@mui/icons-material/Image";
 import arrayData from "./data";
-import ScrollDialog from "./ScrollDialog";
+import ScrollDialog from "../post/ScrollDialog";
 import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
@@ -77,8 +77,6 @@ const Menu = ({ top, log = (f) => f }) => {
       <motion.div className="background" variants={sidebar(top)}>
         <Paper
           sx={{
-            backgroundColor: "transparent",
-            visibility: isOpen ? "visible" : "hidden",
             width: 290,
             objectFit: "cover",
           }}

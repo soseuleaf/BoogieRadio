@@ -1,7 +1,4 @@
-import React, { useState, useRef } from "react";
-
-// Component
-import IconProvider from "./IconProvider";
+import React, { useState } from "react";
 
 // MUI
 import { Divider, Typography, Paper, Box } from "@mui/material";
@@ -12,43 +9,25 @@ const DrawPost = ({ post }) => {
     return <div>사연 선택 안했음</div>;
   } else {
     return (
-      <>
+      <div>
         {post.post_title} {post.music_title}
-      </>
+      </div>
     );
   }
 };
 
 export default function Read({ post }) {
-  // 이모지가 한계 범위를 벗어나면 안되기 때문에 범위를 지정 해 주어야 함. useref를 사용
-  const constraintsRef = useRef(null);
-
   return (
     <Paper
       sx={{
         padding: "25px",
         height: "95%",
-        position: "relative",
+        display: "flex",
+        flexDirection: "column",
       }}
     >
-      <DrawPost post={post} />
-      <Box
-        ref={constraintsRef}
-        sx={{
-          width: "100%",
-          height: "100%",
-          position: "absolute",
-          display: "flex",
-          flexWrap: "wrap",
-          alignContent: "flex-end",
-          top: 0,
-          left: 0,
-        }}
-      >
-        <IconProvider
-          emojis={post == null ? [] : post.emoji}
-          paperRef={constraintsRef}
-        />
+      <Box>
+        <DrawPost post={post} />
       </Box>
     </Paper>
   );

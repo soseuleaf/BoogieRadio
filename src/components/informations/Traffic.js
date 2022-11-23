@@ -1,6 +1,5 @@
 import React from "react";
 import { Map, MapTypeId } from "react-kakao-maps-sdk";
-
 function Traffic() {
   const { kakao } = window;
   const Main = () => {

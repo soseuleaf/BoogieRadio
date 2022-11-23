@@ -55,12 +55,15 @@ const Menu = ({ index, icon, content, top, isOpen, onClick = (f) => f }) => {
           top: "0",
           left: "0",
           bottom: "0",
-          width: "50vw",
+
+          width: "25vw",
+          height: "90vh",
           margin: "10px",
           padding: "25px",
           paddingLeft: "80px",
           borderRadius: "20px",
-          background: "rgb(230, 230, 230)",
+          background: "rgba(0, 0, 0, 0.2)",
+
           color: "var(--clr-neon)",
           border: "var(--clr-neon) 0.2em solid",
           boxShadow:
