@@ -7,7 +7,7 @@ import SlidePost from "./components/radio/SlidePost";
 import Menu from "./components/menu/Menu";
 import Write from "./components/post/Write";
 import Read from "./components/post/Read";
-
+import UserList from "./components/UserList";
 // MUI
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Paper, Grid, Button, CssBaseline } from "@mui/material";
@@ -119,7 +119,7 @@ function HansungRadio() {
         <Menu
           index={4}
           icon={<Search />}
-          content={<Paper sx={{ width: "100%", height: "100%" }}> 4번 </Paper>}
+          content={<UserList/>}
           top={300}
           isOpen={openMenuArray}
           onClick={openMenu}
