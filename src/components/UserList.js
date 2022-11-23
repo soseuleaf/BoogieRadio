@@ -10,7 +10,7 @@ import ListItemText from "@mui/material/ListItemText";
 import {FixedSizeList} from "react-window";
 
 import Box from "@mui/material/Box";
-//문제: <Avatar>에 img src를 일반적인 링크로도 넣어봤는데 그냥 안보임... 
+
 function User({ user }) {
     return (
     <List
@@ -32,7 +32,7 @@ function User({ user }) {
     </List>
     );
 }
-//HansungRadio.js에 <UserList userdata={userdata}/> 넣기
+
 export default function UserList({userdata}) {
     
     return (
