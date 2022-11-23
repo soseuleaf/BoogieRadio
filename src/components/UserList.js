@@ -36,13 +36,14 @@ function User({ user }) {
 export default function UserList({userdata}) {
     
     return (
-        <>
-        {userdata.map((user) => (<User user={user} key={user.id}/>))}
-        </>
+        <Paper
+        sx={{
+        width: 500,
+        objectFit: "cover",
+        }}
+        >
+            {userdata.map((user) => (<User user={user} key={user.id}/>))}
+        </Paper>
+        
     );
 }
-/*
-UserList.js 들어갈 공간에다가
-import Userlist from "./components./UserList";
-<UserList userdata={userdata}/>추가
-*/
