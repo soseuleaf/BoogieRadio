@@ -7,7 +7,7 @@ import MenuButton from "./MenuButton";
 import { motion, useCycle } from "framer-motion";
 
 // MUI
-import { Paper, Box } from "@mui/material";
+import { Paper } from "@mui/material";
 
 // 메뉴 화면 애니메션 적용 값
 const sidebar = (top) => ({
@@ -68,15 +68,15 @@ const Menu = ({ index, icon, content, top, isOpen, onClick = (f) => f }) => {
           background: "rgba(0, 0, 0, 0.2)",
         }}
       >
-        <Paper
-          sx={{
+        <Paper>
+          sx=
+          {{
             boxSizing: "border-box",
             width: "100%",
             height: "100%",
             padding: "1em",
           }}
-        >
-          {content}
+          >{content}
         </Paper>
       </motion.div>
       {/* 

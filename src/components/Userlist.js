@@ -13,12 +13,21 @@ import {
 
 function Post({ postData }) {
   return (
-    <ListItem>
-      <ListItemAvatar>
-        <Avatar src={postData.avatar} />
-      </ListItemAvatar>
-      <ListItemText primary={postData.name} />
-    </ListItem>
+    <List
+      sx={{
+        width: 450,
+      }}
+    >
+      <Box>
+        <ListItem sx={{ height: 60 }}>
+          <ListItemAvatar>
+            <Avatar src={postData.avatar}></Avatar>
+          </ListItemAvatar>
+          <ListItemText primary={postData.name} />
+        </ListItem>
+        <Divider />
+      </Box>
+    </List>
   );
 }
 
