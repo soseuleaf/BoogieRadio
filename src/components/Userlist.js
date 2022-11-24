@@ -12,18 +12,18 @@ import {
   Divider,
 } from "@mui/material";
 
-function Post({ postData }) {
+function UserItem({ userData }) {
   return (
     <ListItem sx={{ height: 60 }}>
       <ListItemAvatar>
-        <Avatar src={postData.avatar}></Avatar>
+        <Avatar src={userData.avatar}></Avatar>
       </ListItemAvatar>
-      <ListItemText primary={postData.name} />
+      <ListItemText primary={userData.name} />
     </ListItem>
   );
 }
 
-export default function Userlist({ postData }) {
+export default function Userlist({ userData }) {
   return (
     <>
       <List
@@ -35,11 +35,11 @@ export default function Userlist({ postData }) {
           height: "100%",
         }}
       >
-        {postData.map((post, index) => (
-          <>
-            <Post key={index} postData={post} />
+        {userData.map((user, index) => (
+          <div key={index}>
+            <UserItem userData={user} />
             <Divider />
-          </>
+          </div>
         ))}
       </List>
     </>

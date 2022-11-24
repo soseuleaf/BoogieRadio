@@ -2,10 +2,8 @@ import React, { useState, useEffect, useRef, useMemo } from "react";
 
 // COMPONENT
 import InformationSlide from "./components/informations/InformationSlide";
-
 import SlidePost from "./components/radio/SlidePost";
 import Menu from "./components/menu/Menu";
-import IconProvider from "./components/IconProvider";
 import Write from "./components/post/Write";
 import Read from "./components/post/Read";
 import Top10list from "./components/post/top10list";
@@ -182,7 +180,7 @@ function HansungRadio() {
         <Menu
           index={4}
           icon={<Search />}
-          content={<Userlist postData={userData} />}
+          content={<Userlist userData={userData} />}
           top={300}
           isOpen={openMenuArray}
           onClick={openMenu}
@@ -190,7 +188,7 @@ function HansungRadio() {
         <Menu
           index={5}
           icon={<Info />}
-          content={<IconProvider />}
+          content={<div></div>}
           top={400}
           isOpen={openMenuArray}
           onClick={openMenu}

@@ -34,7 +34,7 @@ const EmojiIcon = ({ index }) => {
 // type은 단순히 배열의 index
 // value는 index가 가지고 있는 값
 // contraintsRef는 <motion.div className="drag-area" ref={constraintsRef}>의 참조값
-const DragableEmoji = ({ type, value, emojiRef }) => {
+const DragableEmoji = ({ type, value, dragRef }) => {
   // 컴포넌트를 여러개 반환해야하기 때문에 배열을 선언
   let motionDivArray = [];
   // 그려야할 이모지를 받아와서 드래그가 가능한 div안에 넣어줌. 드래그 제한 공간도 지정.
@@ -44,7 +44,7 @@ const DragableEmoji = ({ type, value, emojiRef }) => {
       key={index}
       drag
       whileTap={{ scale: 0.8 }}
-      dragConstraints={emojiRef}
+      dragConstraints={dragRef}
       style={{
         width: "min-content",
         height: "min-content",
@@ -63,14 +63,14 @@ const DragableEmoji = ({ type, value, emojiRef }) => {
   return motionDivArray;
 };
 
-function IconProvider({ emojis, paperRef }) {
+function IconProvider({ emojis, emojiBoxRef }) {
   /* 배열의 위치에 해당 하는 이모티콘을, 배열의 값에 해당하는 만큼 가져옴*/
   return emojis.map((value, index) => (
     <DragableEmoji
       key={index + "-" + value}
       type={index}
       value={value}
-      emojiRef={paperRef}
+      dragRef={emojiBoxRef}
     />
   ));
 }
