@@ -32,9 +32,11 @@ function Post({ rank, postData, userData }) {
 
   return (
     <div
+      className="Top10Item
+      "
       style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
     >
-      <div class="RankIcon" style={{ minWidth: "2em" }}>
+      <div className="RankIcon" style={{ minWidth: "2em" }}>
         <RankIcon rank={rank} />
       </div>
       <Avatar src={user.avatar} sx={{ marginRight: "1em" }} />
@@ -46,7 +48,7 @@ function Post({ rank, postData, userData }) {
         }}
       />
       <div
-        class="Top10Last"
+        className="Top10Last"
         style={{
           flexShrink: 0,
           display: "grid",
@@ -70,6 +72,7 @@ export default function Top10List({ postData, userData }) {
   arraydata.sort((a, b) => (a.emoji[0] < b.emoji[0] ? 1 : -1));
   return (
     <div
+      className="Top10Lists"
       style={{
         height: "100%",
         overflow: "auto",
@@ -79,7 +82,7 @@ export default function Top10List({ postData, userData }) {
       }}
     >
       {arraydata.map((post, index) => (
-        <Post key={post.id} rank={index} postData={post} userData={userData} />
+        <Post key={index} rank={index} postData={post} userData={userData} />
       ))}
     </div>
   );

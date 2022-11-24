@@ -40,79 +40,64 @@ export default function Write({ addNewPost = (f) => f }) {
   };
 
   return (
-    <Paper
+    <Box
+      component="form"
+      noValidate
+      autoComplete="off"
       sx={{
-        width: 380,
-        padding: "25px",
-        height: 680,
+        width: "100%",
+        height: "100%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-around",
       }}
     >
-      <Box
-        component="form"
-        noValidate
-        autoComplete="off"
+      <TextField
+        id="title"
+        label="사연 제목"
+        variant="standard"
+        onChange={(e) => setTitle(e.target.value)}
+        value={title}
+      />
+      <Divider />
+      <CustomizedDividers />
+      <TextField
+        multiline
+        fullWidth
+        minRows="15"
+        label="사연 쓰기"
+        helperText="자신의 사연을 남들에게 공유하세요!"
+        variant="standard"
+        onChange={(e) => setContent(e.target.value)}
+        value={content}
         sx={{
-          flexDirection: "column",
-          display: "flex",
-          justifyContent: "space-around",
-          width: 380,
+          marginTop: "20px",
         }}
+      />
+      <TextField
+        id="music_title"
+        label="음악 제목"
+        variant="standard"
+        onChange={(e) => setMusicTitle(e.target.value)}
+        value={musicTitle}
+      />
+      <TextField
+        id="music_url"
+        label="음악 주소"
+        helperText="유튜브, 사운드 클라우드 지원"
+        variant="standard"
+        onChange={(e) => setMusicUrl(e.target.value)}
+        value={musicUrl}
+      />
+      <div style={{ flex: 1 }} />
+      <Button
+        variant="contained"
+        endIcon={<Send />}
+        onClick={sendPostToMain}
+        style={{ height: "4em" }}
       >
-        <Typography variant="h3">
-          <TextField
-            id="title"
-            label="사연 제목"
-            variant="standard"
-            onChange={(e) => setTitle(e.target.value)}
-            value={title}
-          />
-          <TextField
-            id="music_title"
-            label="음악 제목"
-            variant="standard"
-            onChange={(e) => setMusicTitle(e.target.value)}
-            value={musicTitle}
-          />
-        </Typography>
-        <Divider />
-
-        <CustomizedDividers />
-        <TextField
-          multiline
-          fullWidth
-          minRows="15"
-          label="사연 쓰기"
-          helperText="자신의 사연을 남들에게 공유하세요!"
-          variant="standard"
-          onChange={(e) => setContent(e.target.value)}
-          value={content}
-          sx={{
-            marginTop: "20px",
-            width: 376,
-          }}
-        />
-        <TextField
-          id="music_url"
-          label="음악 주소"
-          helperText="유튜브, 사운드 클라우드 지원"
-          variant="standard"
-          onChange={(e) => setMusicUrl(e.target.value)}
-          value={musicUrl}
-        />
-        <Button
-          variant="contained"
-          endIcon={<Send />}
-          onClick={sendPostToMain}
-          sx={{
-            flex: 1,
-          }}
-        >
-          사연 보내기
-        </Button>
-      </Box>
-    </Paper>
+        사연 보내기
+      </Button>
+    </Box>
   );
 }

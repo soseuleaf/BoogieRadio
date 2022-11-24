@@ -9,25 +9,17 @@ import {
   Box,
   Paper,
   Typography,
+  Divider,
 } from "@mui/material";
 
 function Post({ postData }) {
   return (
-    <List
-      sx={{
-        width: 450,
-      }}
-    >
-      <Box>
-        <ListItem sx={{ height: 60 }}>
-          <ListItemAvatar>
-            <Avatar src={postData.avatar}></Avatar>
-          </ListItemAvatar>
-          <ListItemText primary={postData.name} />
-        </ListItem>
-        <Divider />
-      </Box>
-    </List>
+    <ListItem sx={{ height: 60 }}>
+      <ListItemAvatar>
+        <Avatar src={postData.avatar}></Avatar>
+      </ListItemAvatar>
+      <ListItemText primary={postData.name} />
+    </ListItem>
   );
 }
 
@@ -35,6 +27,7 @@ export default function Userlist({ postData }) {
   return (
     <>
       <List
+        disablePadding
         sx={{
           width: "100%",
           bgcolor: "background.paper",
@@ -42,8 +35,11 @@ export default function Userlist({ postData }) {
           height: "100%",
         }}
       >
-        {postData.map((post) => (
-          <Post postData={post} key={post.id} />
+        {postData.map((post, index) => (
+          <>
+            <Post key={index} postData={post} />
+            <Divider />
+          </>
         ))}
       </List>
     </>

@@ -53,7 +53,7 @@ const Menu = ({ index, icon, content, top, isOpen, onClick = (f) => f }) => {
         style={{
           position: "fixed",
           boxSizing: "border-box",
-          width: "70vw",
+          width: "50vw",
           height: "calc(100% - 2em)",
 
           marginTop: "1em",
@@ -68,15 +68,15 @@ const Menu = ({ index, icon, content, top, isOpen, onClick = (f) => f }) => {
           background: "rgba(0, 0, 0, 0.2)",
         }}
       >
-        <Paper>
-          sx=
-          {{
+        <Paper
+          sx={{
             boxSizing: "border-box",
             width: "100%",
             height: "100%",
             padding: "1em",
           }}
-          >{content}
+        >
+          {content}
         </Paper>
       </motion.div>
       {/* 

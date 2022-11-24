@@ -11,8 +11,12 @@ import Read from "./components/post/Read";
 import Top10list from "./components/post/top10list";
 import QuizPage from "./components/quiz/QuizPage";
 import Userlist from "./components/Userlist";
+import Neon from "./components/neon/Neon";
+import Neonoff from "./components/neon/NeonOff";
 
 // MUI
+import { IconButton } from "@mui/material";
+
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import {
@@ -22,6 +26,7 @@ import {
   Search,
   Info,
   Quiz,
+  Lightbulb,
 } from "@mui/icons-material";
 
 // Framer
@@ -29,6 +34,7 @@ import { motion, useCycle } from "framer-motion";
 
 // Data
 import { PostData } from "/src/data/PostData";
+
 //faker
 import { faker } from "@faker-js/faker";
 
@@ -68,6 +74,7 @@ function HansungRadio() {
   const [isOpen, setOpen] = useState(0);
   const [isRead, setRead] = useState(false);
   const [isSendQuiz, setSendQuiz] = useState(false);
+  const [neon, setNeon] = useState(true);
 
   const openMenuArray = useMemo(() => {
     console.log("메뉴오픈계산됨");
@@ -117,8 +124,29 @@ function HansungRadio() {
           layout
           animate={{ x: isOpen != 0 ? window.innerWidth / 6 : 0 }}
           transition={{ type: "Tween", stiffness: 100 }}
-          style={{ position: "relative" }}
+          style={{ position: "fixed", width: "100vw", height: "100vh" }}
         >
+          <div className="NeonBackground">
+            {neon ? (
+              <Neon content="BoogieRadio" />
+            ) : (
+              <Neonoff content="BoogieRadio" />
+            )}
+            <IconButton
+              onClick={() => {
+                setNeon(!neon);
+              }}
+              sx={{
+                position: "relative",
+                top: 170,
+                left: 1500,
+                overflow: "auto",
+                color: neon ? "#cc00ff" : "grey",
+              }}
+            >
+              <Lightbulb sx={{ fontSize: "5em" }} />
+            </IconButton>
+          </div>
           <SlidePost
             postData={postData}
             modifyEmoji={modifyEmoji}
@@ -126,6 +154,7 @@ function HansungRadio() {
             userData={userData}
           />
         </motion.div>
+
         <Menu
           index={1}
           icon={<Edit />}
