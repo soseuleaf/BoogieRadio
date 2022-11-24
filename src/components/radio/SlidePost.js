@@ -98,7 +98,7 @@ const SlidePost = ({
   };
 
   return (
-    <Box sx={{ position: "relative", top: 100 }}>
+    <Box sx={{ position: "relative", top: 30 }}>
       {neon ? (
         <Neon content="BoogieRadio" />
       ) : (
