@@ -52,33 +52,32 @@ const Menu = ({ index, icon, content, top, isOpen, onClick = (f) => f }) => {
         variants={sidebar(top)}
         style={{
           position: "fixed",
-          top: "0",
-          left: "0",
-          bottom: "0",
+          boxSizing: "border-box",
+          width: "70vw",
+          height: "calc(100% - 2em)",
 
-          width: "50vw",
-          height: "100%",
-          margin: "1em",
-          // padding: "1em",
-          // paddingLeft: "5em",
-          borderRadius: "20px",
-          background: "rgba(0, 0, 0, 0.2)",
+          marginTop: "1em",
+          marginLeft: "1em",
 
-          color: "var(--clr-neon)",
+          padding: "1em",
+          paddingLeft: "6em",
+
           border: "var(--clr-neon) 0.2em solid",
-          boxShadow:
-            "inset 0 0 1em 0 var(--clr-neon), 0 0 1em 0 var(--clr-neon)",
+          borderRadius: "20px",
+
+          background: "rgba(0, 0, 0, 0.2)",
         }}
       >
-        <Paper sx={{
-          boxSizing: "border-box",
-          width: "100%",
-          height: "100%",
-          margin: "1em",
-        }}>
+        <Paper
+          sx={{
+            boxSizing: "border-box",
+            width: "100%",
+            height: "100%",
+            padding: "1em",
+          }}
+        >
           {content}
         </Paper>
-
       </motion.div>
       {/* 
       메뉴를 열리게 하는 버튼, 내부에 있는 버튼과 이벤트 연결을 위해 toggle 함수를 전달함. 
@@ -91,7 +90,7 @@ const Menu = ({ index, icon, content, top, isOpen, onClick = (f) => f }) => {
         top={top}
         isOpen={isOpen[index]}
       />
-    </motion.nav >
+    </motion.nav>
   );
 };
 

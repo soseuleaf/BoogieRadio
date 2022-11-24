@@ -1,8 +1,15 @@
 import * as React from "react";
 
-import { List, ListItem, ListItemText, ListItemAvatar, Avatar, Box, Paper } from "@mui/material";
-import { FixedSizeList } from 'react-window';
-
+import {
+  List,
+  ListItem,
+  ListItemText,
+  ListItemAvatar,
+  Avatar,
+  Box,
+  Paper,
+  Typography,
+} from "@mui/material";
 
 function Post({ postData }) {
   return (
@@ -17,17 +24,19 @@ function Post({ postData }) {
 
 export default function Userlist({ postData }) {
   return (
-    <List
-      sx={{
-        width: '100%',
-        bgcolor: 'background.paper',
-        overflow: 'auto',
-        height: "90%",
-      }}
-    >
-      {postData.map((post) => (
-        <Post postData={post} key={post.id} />
-      ))}
-    </List>
+    <>
+      <List
+        sx={{
+          width: "100%",
+          bgcolor: "background.paper",
+          overflow: "auto",
+          height: "100%",
+        }}
+      >
+        {postData.map((post) => (
+          <Post postData={post} key={post.id} />
+        ))}
+      </List>
+    </>
   );
 }

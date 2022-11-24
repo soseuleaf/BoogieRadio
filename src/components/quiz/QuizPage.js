@@ -91,7 +91,7 @@ const QuizPage = ({ isSended, sendQuizAnswer = (f) => f }) => {
   };
 
   if (isSended) {
-    return <SendedQuiz>아응애에요</SendedQuiz>;
+    return <SendedQuiz />;
   } else {
     return <QuizMaker data={quiz} onClickAnswer={sendQuizAnswer} />;
   }

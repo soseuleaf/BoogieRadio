@@ -47,7 +47,7 @@ export default function Write({ addNewPost = (f) => f }) {
       sx={{
         display: "flex",
         flexDirection: "column",
-        //justifyContent: "space-around",
+        justifyContent: "space-around",
       }}
     >
       <Typography variant="h3">
@@ -92,11 +92,7 @@ export default function Write({ addNewPost = (f) => f }) {
         onChange={(e) => setMusicUrl(e.target.value)}
         value={musicUrl}
       />
-      <Button
-        variant="contained"
-        endIcon={<Send />}
-        onClick={sendPostToMain}
-      >
+      <Button variant="contained" endIcon={<Send />} onClick={sendPostToMain}>
         사연 보내기
       </Button>
     </Box>

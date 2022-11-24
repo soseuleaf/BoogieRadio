@@ -16,15 +16,16 @@ const MenuButton = ({ icon, toggle, top, isOpen }) => (
     onClick={toggle}
     color="primary"
     sx={{
-      width: "50px",
-      height: "50px",
-      position: "absolute",
-      left: 25,
-      top: top + 35,
+      position: "fixed",
+      width: "60px",
+      height: "60px",
+      left: "26px",
+      top: top + 36,
       zIndex: isOpen == true ? 2 : 0,
+      backgroundColor: isOpen && "#fbc02d",
     }}
   >
-    {isOpen == 1 ? <Clear /> : icon}
+    {isOpen == 1 ? <Clear sx={{ color: "#000000" }} /> : icon}
   </IconButton>
 );
 
