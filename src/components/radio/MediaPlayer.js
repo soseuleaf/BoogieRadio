@@ -140,7 +140,7 @@ const MediaPlayer = ({ img, title, url }) => {
         {/* 앨범 이미지, 제목이 보여지는 영역 입니다. */}
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <CoverImage>
-            <img src={`/images/${img}`} />
+            <img src={`/image/${img}`} />
           </CoverImage>
           <Box sx={{ ml: 1.5, minWidth: 0 }}>
             <Typography noWrap variant="subtitle1">
