@@ -7,7 +7,7 @@ import MenuButton from "./MenuButton";
 import { motion, useCycle } from "framer-motion";
 
 // MUI
-import { Paper, Box } from "@mui/material";
+import { Paper } from "@mui/material";
 
 // 메뉴 화면 애니메션 적용 값
 const sidebar = (top) => ({
@@ -51,16 +51,16 @@ const Menu = ({ index, icon, content, top, isOpen, onClick = (f) => f }) => {
         className="background"
         variants={sidebar(top)}
         style={{
-          position: "fixed",
+          position: "absolute",
           top: "0",
           left: "0",
           bottom: "0",
 
-          width: "50vw",
-          height: "100%",
-          margin: "1em",
-          // padding: "1em",
-          // paddingLeft: "5em",
+          width: "30vw",
+          height: "90vh",
+          margin: "10px",
+          padding: "25px",
+          paddingLeft: "80px",
           borderRadius: "20px",
           background: "rgba(0, 0, 0, 0.2)",
 
@@ -70,15 +70,7 @@ const Menu = ({ index, icon, content, top, isOpen, onClick = (f) => f }) => {
             "inset 0 0 1em 0 var(--clr-neon), 0 0 1em 0 var(--clr-neon)",
         }}
       >
-        <Paper sx={{
-          boxSizing: "border-box",
-          width: "100%",
-          height: "100%",
-          margin: "1em",
-        }}>
-          {content}
-        </Paper>
-
+        {content}
       </motion.div>
       {/* 
       메뉴를 열리게 하는 버튼, 내부에 있는 버튼과 이벤트 연결을 위해 toggle 함수를 전달함. 
@@ -91,7 +83,7 @@ const Menu = ({ index, icon, content, top, isOpen, onClick = (f) => f }) => {
         top={top}
         isOpen={isOpen[index]}
       />
-    </motion.nav >
+    </motion.nav>
   );
 };
 

@@ -3,12 +3,16 @@ import React, { useState, useEffect } from "react";
 
 // MUI Material
 import { Slide, IconButton, Box } from "@mui/material";
+import { Paper, Grid, Button, CssBaseline } from "@mui/material";
 
 // MUI Icons
 import { ArrowLeft, ArrowRight } from "@mui/icons-material";
+import Lightbulb from "@mui/icons-material/Lightbulb";
 
 // Import
 import PostCard from "./PostCard";
+import Neon from "../neon/Neon";
+import Neonoff from "../neon/NeonOff";
 
 /* 화살표 클릭 시 카드가 슬라이드 되는 컴포넌트 */
 
@@ -24,6 +28,7 @@ const SlidePost = ({
   const [slideIn, setSlideIn] = useState(true);
   // 슬라이드가 될 방향을 정합니다.
   const [slideDirection, setSlideDirection] = useState("left");
+  var [neon, setNeon] = useState(true);
 
   // PostData json 배열의 해당 값을 가져오고, postdata의 길이를 저장합니다.
   const post = postData[index];
@@ -93,29 +98,52 @@ const SlidePost = ({
   };
 
   return (
-    <Box
-      sx={{
-        position: "absolute",
-        left: "50%",
-        top: "200px",
-        transform: "translate(-57%, 0%)",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Arrow direction="left" />
-      <Slide in={slideIn} direction={slideDirection}>
-        <Box sx={{ width: 420, height: 348.5, backgroundColor: "transparent" }}>
-          <PostCard
-            user={user}
-            post={post}
-            clickEmoji={clickEmoji}
-            clickDetail={() => openPost(index)}
-          />
-        </Box>
-      </Slide>
-      <Arrow direction="right" />
+    <Box sx={{ position: "relative", top: 100 }}>
+      {neon ? (
+        <Neon content="BoogieRadio" />
+      ) : (
+        <Neonoff content="BoogieRadio" />
+      )}
+      <Button
+        onClick={() => {
+          setNeon(!neon);
+        }}
+        startIcon={<Lightbulb sx={{ width: 80, height: 80 }} />}
+        sx={{
+          position: "relative",
+          top: 170,
+          left: 1500,
+          overflow: "auto",
+          color: neon ? "#cc00ff" : "grey",
+        }}
+      ></Button>
+      <Box
+        sx={{
+          position: "absolute",
+          left: "50%",
+          top: 320,
+
+          transform: "translate(-50%, 0%)",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Arrow direction="left" />
+        <Slide in={slideIn} direction={slideDirection}>
+          <Box
+            sx={{ width: 420, height: 348.5, backgroundColor: "transparent" }}
+          >
+            <PostCard
+              user={user}
+              post={post}
+              clickEmoji={clickEmoji}
+              clickDetail={() => openPost(index)}
+            />
+          </Box>
+        </Slide>
+        <Arrow direction="right" />
+      </Box>
     </Box>
   );
 };

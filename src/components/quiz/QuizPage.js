@@ -85,16 +85,32 @@ const SendedQuiz = () => {
 const QuizPage = ({ isSended, sendQuizAnswer = (f) => f }) => {
   const quizNum = 0;
   const quiz = QuizData[quizNum];
+  let content;
 
   const onClickAnswer = () => {
     sendQuizAnswer();
   };
 
   if (isSended) {
-    return <SendedQuiz>아응애에요</SendedQuiz>;
+    content = <SendedQuiz>아응애에요</SendedQuiz>;
   } else {
-    return <QuizMaker data={quiz} onClickAnswer={sendQuizAnswer} />;
+    content = <QuizMaker data={quiz} onClickAnswer={sendQuizAnswer} />;
   }
+
+  return (
+    <Paper
+      sx={{
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      {content}
+    </Paper>
+  );
 };
 
 export default QuizPage;

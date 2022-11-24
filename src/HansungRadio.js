@@ -2,8 +2,7 @@ import React, { useState, useEffect, useRef, useMemo } from "react";
 
 // COMPONENT
 import InformationSlide from "./components/informations/InformationSlide";
-import Neon from "./components/neon/Neon";
-import Neonoff from "./components/Neon/NeonOff";
+
 import SlidePost from "./components/radio/SlidePost";
 import Menu from "./components/menu/Menu";
 import IconProvider from "./components/IconProvider";
@@ -15,7 +14,7 @@ import Userlist from "./components/Userlist";
 
 // MUI
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Paper, Grid, Button, CssBaseline } from "@mui/material";
+
 import {
   Edit,
   Favorite,
@@ -24,7 +23,6 @@ import {
   Info,
   Quiz,
 } from "@mui/icons-material";
-import LightIcon from "@mui/icons-material/Light";
 
 // Framer
 import { motion, useCycle } from "framer-motion";
@@ -64,8 +62,6 @@ const NightTheme = createTheme({
 const loadUserPost = () => [...PostData];
 
 function HansungRadio() {
-  var [neon, setNeon] = useState(true);
-
   // 글 데이터를 저장하는 hook
   const [postData, setPostData] = useState(loadUserPost());
   // 메뉴가 열렸는지 안 열렸는지 확인하는 hook
@@ -117,11 +113,19 @@ function HansungRadio() {
   return (
     <>
       <ThemeProvider theme={NightTheme}>
-        {neon ? (
-          <Neon content="BoogieRadio" />
-        ) : (
-          <Neonoff content="BoogieRadio" />
-        )}
+        <motion.div
+          layout
+          animate={{ x: isOpen != 0 ? window.innerWidth / 6 : 0 }}
+          transition={{ type: "Tween", stiffness: 100 }}
+          style={{ position: "relative" }}
+        >
+          <SlidePost
+            postData={postData}
+            modifyEmoji={modifyEmoji}
+            openPost={openPost}
+            userData={userData}
+          />
+        </motion.div>
         <Menu
           index={1}
           icon={<Edit />}
@@ -176,33 +180,7 @@ function HansungRadio() {
         />
 
         {/* 메인 컨텐츠가 들어갈 div, isOpen 값을 통해서 x값을 애니메이션으로 이동 시킴 */}
-        <motion.div
-          layout
-          //animate={{ x: isOpen != 0 ? window.innerWidth / 4 : 0 }}
-          //transition={{ type: "Tween", stiffness: 100 }}
-          style={{ position: "relative", top: "120px", left: "50px" }}
-        >
-          <SlidePost
-            postData={postData}
-            modifyEmoji={modifyEmoji}
-            openPost={openPost}
-            userData={userData}
-          />
-        </motion.div>
 
-        <Button
-          onClick={() => {
-            setNeon(!neon);
-          }}
-          startIcon={<LightIcon sx={{ width: 200, height: 200 }} />}
-          sx={{
-            position: "absolute",
-            top: 0,
-            right: 80,
-            overflow: "auto",
-            color: neon ? "" : "grey",
-          }}
-        ></Button>
         <InformationSlide />
       </ThemeProvider>
     </>
