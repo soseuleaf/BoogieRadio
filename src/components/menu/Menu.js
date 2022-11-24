@@ -37,7 +37,15 @@ content: 내부에 들어갈 컨텐츠
 top: 위에서 띄워져 있는 정도
 onclick: 메뉴의 버튼이 작동 되었을 때 실행되는 함수 (메인 컴포넌트의 위치를 변경 시킴)
 */
-const Menu = ({ index, icon, content, top, isOpen, onClick = (f) => f }) => {
+const Menu = ({
+  index,
+  icon,
+  content,
+  tooltip,
+  top,
+  isOpen,
+  onClick = (f) => f,
+}) => {
   const openMenu = () => {
     if (isOpen[index]) onClick(0);
     else onClick(index);
@@ -89,6 +97,7 @@ const Menu = ({ index, icon, content, top, isOpen, onClick = (f) => f }) => {
         toggle={openMenu}
         top={top}
         isOpen={isOpen[index]}
+        tooltip={tooltip}
       />
     </motion.nav>
   );

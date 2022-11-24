@@ -9,12 +9,43 @@ import { Send } from "@mui/icons-material";
 
 const DrawPost = ({ post }) => {
   if (post == null) {
-    return <div>사연 선택 안했음</div>;
+    return (
+      <div
+        classesName="ReadPost"
+        style={{
+          display: "flex",
+          width: "100%",
+          height: "100%",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
+        }}
+      >
+        <Typography variant="h4">선택된 사연이 없습니다.</Typography>
+      </div>
+    );
   } else {
     return (
-      <>
-        {post.post_title} {post.music_title}
-      </>
+      <div
+        classesName="ReadPost"
+        style={{
+          display: "flex",
+          width: "100%",
+          height: "100%",
+          //justifyContent: "center",
+          flexDirection: "column",
+        }}
+      >
+        <div classesName="PostTitle" style={{ margin: "2em" }}>
+          <Typography variant="h4" sx={{ color: "primary.main" }}>
+            {post.post_title}
+          </Typography>
+        </div>
+        <Divider />
+        <div classesName="PostContent" style={{ margin: "2em" }}>
+          <Typography variant="body1">{post.post_content}</Typography>
+        </div>
+      </div>
     );
   }
 };

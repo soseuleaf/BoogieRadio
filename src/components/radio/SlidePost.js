@@ -15,9 +15,9 @@ import PostCard from "./PostCard";
 
 const SlidePost = ({
   postData,
+  userData,
   modifyEmoji = (f) => f,
   openPost = (f) => f,
-  userData,
 }) => {
   // 배열의 몇번째 데이터를 불러올지 정하는 useState 입니다.
   const [index, setIndex] = useState(0);
@@ -75,7 +75,7 @@ const SlidePost = ({
             height: 100,
           }}
         >
-          <ArrowLeft sx={{ fontSize: "80px" }} />
+          <ArrowLeft sx={{ fontSize: "80px", color: "#fbc02d" }} />
         </IconButton>
       );
     } else {
@@ -87,7 +87,7 @@ const SlidePost = ({
             height: 100,
           }}
         >
-          <ArrowRight sx={{ fontSize: "80px" }} />
+          <ArrowRight sx={{ fontSize: "80px", color: "#fbc02d" }} />
         </IconButton>
       );
     }
@@ -113,7 +113,7 @@ const SlidePost = ({
             user={user}
             post={post}
             clickEmoji={clickEmoji}
-            clickDetail={() => openPost(index)}
+            clickDetail={() => openPost(post.uuid)}
           />
         </Box>
       </Slide>

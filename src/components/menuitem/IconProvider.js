@@ -4,10 +4,10 @@ import React, { useRef } from "react";
 import { Button, Box } from "@mui/material";
 import {
   Favorite,
-  ThumbUpAlt,
+  ThumbUp,
   SentimentSatisfiedAlt,
   Celebration,
-  EmojiEmotions,
+  Star,
 } from "@mui/icons-material";
 import { red, yellow, blue, green, purple } from "@mui/material/colors";
 
@@ -20,13 +20,13 @@ const EmojiIcon = ({ index }) => {
     case 0:
       return <Favorite sx={{ fontSize: 40, color: red[700] }} />;
     case 1:
-      return <ThumbUpAlt sx={{ fontSize: 40, color: yellow[700] }} />;
+      return <ThumbUp sx={{ fontSize: 40, color: yellow[700] }} />;
     case 2:
       return <SentimentSatisfiedAlt sx={{ fontSize: 40, color: green[700] }} />;
     case 3:
       return <Celebration sx={{ fontSize: 40, color: blue[700] }} />;
     case 4:
-      return <EmojiEmotions sx={{ fontSize: 40, color: purple[700] }} />;
+      return <Star sx={{ fontSize: 40, color: purple[700] }} />;
   }
 };
 

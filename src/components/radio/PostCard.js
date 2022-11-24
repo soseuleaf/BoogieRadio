@@ -21,8 +21,8 @@ import {
   Favorite,
   ThumbUp,
   SentimentSatisfiedAlt,
+  Celebration,
   Star,
-  TipsAndUpdates,
   ImportContacts,
 } from "@mui/icons-material";
 
@@ -44,18 +44,18 @@ const getEmoji = (index, color) => {
     case 2:
       return <SentimentSatisfiedAlt sx={color} />;
     case 3:
-      return <Star sx={color} />;
+      return <Celebration sx={color} />;
     case 4:
-      return <TipsAndUpdates sx={color} />;
+      return <Star sx={color} />;
   }
 };
 
 // 플레이어, 유저 사연등을 표시하는 가드 입니다.
 const PostCard = ({
   post,
+  user,
   clickEmoji = (f) => f,
   clickDetail = (f) => f,
-  user,
 }) => {
   // 더보기를 클릭하여 사연이 열렸는지 닫혔는지 판단합니다.
   const [expanded, setExpanded] = useState(false);
@@ -87,11 +87,15 @@ const PostCard = ({
           /* 유저의 프로필 이미지가 들어갈 둥근 이미지 입니다. */
           <Avatar src={user.avatar} />
         }
-        title={
-          /* 유저의 이름이 들어갈 공간 입니다. */
-          user.name
+        action={
+          <Button startIcon={<ImportContacts />} onClick={clickDetail}>
+            사연보기
+          </Button>
         }
+        title={post.post_title}
+        subheader={user.name}
       />
+
       <MediaPlayer
         img={post.music_img}
         title={post.music_title}
@@ -127,13 +131,6 @@ const PostCard = ({
         <EmojiButton index={3} color={{ color: blue[700] }} />
         <EmojiButton index={4} color={{ color: purple[700] }} />
       </Stack>
-
-      {/* 사연의 내용이 들어가는 공간 입니다. */}
-      <CardActions sx={{ justifyContent: "flex-end" }}>
-        <Button startIcon={<ImportContacts />} onClick={clickDetail}>
-          사연보기
-        </Button>
-      </CardActions>
     </Card>
   );
 };

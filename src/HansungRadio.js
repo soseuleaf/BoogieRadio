@@ -4,17 +4,16 @@ import React, { useState, useEffect, useRef, useMemo } from "react";
 import InformationSlide from "./components/informations/InformationSlide";
 import SlidePost from "./components/radio/SlidePost";
 import Menu from "./components/menu/Menu";
-import Write from "./components/post/Write";
-import Read from "./components/post/Read";
-import Top10list from "./components/post/top10list";
-import QuizPage from "./components/quiz/QuizPage";
-import Userlist from "./components/Userlist";
+import Write from "./components/menuitem/Write";
+import Read from "./components/menuitem/Read";
+import Top10list from "./components/menuitem/top10list";
+import QuizPage from "./components/menuitem/QuizPage";
+import Userlist from "./components/menuitem/Userlist";
 import Neon from "./components/neon/Neon";
 import Neonoff from "./components/neon/NeonOff";
 
 // MUI
-import { IconButton } from "@mui/material";
-
+import { IconButton, Tooltip } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import {
@@ -82,10 +81,9 @@ function HansungRadio() {
   }, [isOpen]);
 
   const readPost = useMemo(() => {
-    console.log("readpost계산됨");
     if (isRead == -1) return null;
-    console.log(postData[isRead]);
-    return postData[isRead];
+    const findIndex = postData.findIndex((post) => post.uuid === isRead);
+    return postData[findIndex];
   }, [isRead]);
 
   const addNewPost = (data) => {
@@ -103,6 +101,7 @@ function HansungRadio() {
   };
 
   const openPost = (index) => {
+    console.log(index);
     setRead(index);
     openMenu(3);
   };
@@ -111,6 +110,7 @@ function HansungRadio() {
   const openMenu = (value) => {
     setOpen(value);
   };
+
   const sendQuizAnswer = () => {
     setSendQuiz(true);
   };
@@ -157,6 +157,7 @@ function HansungRadio() {
           index={1}
           icon={<Edit />}
           content={<Write addNewPost={addNewPost} />}
+          tooltip={"자신의 사연을 남들과 공유해 보세요."}
           top={0}
           isOpen={openMenuArray}
           onClick={openMenu}
@@ -164,43 +165,52 @@ function HansungRadio() {
         <Menu
           index={2}
           icon={<Favorite />}
-          content={<Top10list postData={postData} userData={userData} />}
+          content={
+            <Top10list
+              postData={postData}
+              userData={userData}
+              openPost={openPost}
+            />
+          }
+          tooltip={"가장 좋아요를 많이 받은 10개의 글을 확인 해 보세요."}
           top={100}
           isOpen={openMenuArray}
           onClick={openMenu}
         />
         <Menu
           index={3}
-          icon={<Person />}
+          icon={<Search />}
           content={<Read post={readPost} />}
+          tooltip={"사연을 자세히 살펴볼 수 있습니다."}
           top={200}
           isOpen={openMenuArray}
           onClick={openMenu}
         />
         <Menu
           index={4}
-          icon={<Search />}
+          icon={<Person />}
           content={<Userlist userData={userData} />}
+          tooltip={"다양한 사용자를 만나보세요."}
           top={300}
           isOpen={openMenuArray}
           onClick={openMenu}
         />
         <Menu
           index={5}
-          icon={<Info />}
-          content={<div></div>}
+          icon={<Quiz />}
+          content={
+            <QuizPage isSended={isSendQuiz} sendQuizAnswer={sendQuizAnswer} />
+          }
+          tooltip={"매주 다양한 퀴즈를 풀고 상품을 받아보세요."}
           top={400}
           isOpen={openMenuArray}
           onClick={openMenu}
         />
         <Menu
           index={6}
-          icon={<Quiz />}
-          content={
-            <QuizPage isSended={isSendQuiz} sendQuizAnswer={sendQuizAnswer}>
-              asd
-            </QuizPage>
-          }
+          icon={<Info />}
+          content={<div></div>}
+          tooltip={"제작자 정보"}
           top={500}
           isOpen={openMenuArray}
           onClick={openMenu}

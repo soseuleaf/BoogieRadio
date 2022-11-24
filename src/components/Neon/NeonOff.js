@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./neon copy.css";
+import styles from "./Neon_off.css";
 
 const Neonoff = ({ content }) => {
   return (

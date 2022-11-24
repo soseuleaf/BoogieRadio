@@ -30,8 +30,20 @@ const QuizMaker = ({ data, onClickAnswer = (f) => f }) => {
   };
 
   return (
-    <>
-      <Typography variant="h3">{data.title}</Typography>
+    <div
+      classesName="ReadPost"
+      style={{
+        display: "flex",
+        width: "100%",
+        height: "100%",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "column",
+      }}
+    >
+      <Typography variant="h3" sx={{ color: "primary.main" }}>
+        {data.title}
+      </Typography>
       <Typography variant="body1">{data.content}</Typography>
       <RadioGroup
         name="quiz"
@@ -60,24 +72,33 @@ const QuizMaker = ({ data, onClickAnswer = (f) => f }) => {
         />
       </RadioGroup>
       <FormHelperText>{hint}</FormHelperText>
-      <Button
-        sx={{ mt: 1, mr: 1 }}
-        onClick={checkAnswer}
-        type="submit"
-        variant="outlined"
-      >
+      <Button sx={{ mt: 1, mr: 1 }} onClick={checkAnswer} variant="outlined">
         정답 보내기
       </Button>
-    </>
+    </div>
   );
 };
 
 const SendedQuiz = () => {
   return (
     <>
-      <CardGiftcard sx={{ fontSize: "10em" }} />
-      <Typography variant="h4">응모해 주셔서 감사합니다!</Typography>
-      <Typography variant="body1">상품은 12/25일 부터 배송됩니다.</Typography>
+      <div
+        classesName="ReadPost"
+        style={{
+          display: "flex",
+          width: "100%",
+          height: "100%",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
+        }}
+      >
+        <CardGiftcard sx={{ fontSize: "10em", color: "primary.main" }} />
+        <Typography variant="h4" sx={{ color: "primary.main" }}>
+          응모해 주셔서 감사합니다!
+        </Typography>
+        <Typography variant="body1">상품은 12/25일 부터 배송됩니다.</Typography>
+      </div>
     </>
   );
 };
