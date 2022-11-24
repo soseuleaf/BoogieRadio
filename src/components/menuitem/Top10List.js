@@ -63,7 +63,10 @@ function RankItem({ rank, postData, userData, num, onClick = (f) => f }) {
         <RankIcon rank={rank} />
       </div>
       <Avatar src={user.avatar} sx={{ marginRight: "1em" }} />
-      <ListItemText primary={postData.uuid} secondary={postData.music_title} />
+      <ListItemText
+        primary={postData.post_title}
+        secondary={postData.music_title}
+      />
       <div
         className="Top10Last"
         style={{
