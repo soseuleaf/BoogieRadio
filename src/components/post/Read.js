@@ -18,17 +18,6 @@ const DrawPost = ({ post }) => {
 
 export default function Read({ post }) {
   return (
-    <Paper
-      sx={{
-        padding: "25px",
-        height: "95%",
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
-      <Box>
-        <DrawPost post={post} />
-      </Box>
-    </Paper>
+    <DrawPost post={post} />
   );
 }

@@ -178,8 +178,8 @@ function HansungRadio() {
         {/* 메인 컨텐츠가 들어갈 div, isOpen 값을 통해서 x값을 애니메이션으로 이동 시킴 */}
         <motion.div
           layout
-          animate={{ x: isOpen != 0 ? window.innerWidth / 4 : 0 }}
-          transition={{ type: "Tween", stiffness: 100 }}
+          //animate={{ x: isOpen != 0 ? window.innerWidth / 4 : 0 }}
+          //transition={{ type: "Tween", stiffness: 100 }}
           style={{ position: "relative", top: "120px", left: "50px" }}
         >
           <SlidePost
