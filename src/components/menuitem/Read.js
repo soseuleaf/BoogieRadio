@@ -4,14 +4,14 @@ import React, { useState, useRef } from "react";
 import IconProvider from "./IconProvider";
 
 // MUI
-import { Divider, Typography, Paper, Box } from "@mui/material";
-import { Send } from "@mui/icons-material";
+import { Divider, Typography, Paper, Box, IconButton } from "@mui/material";
+import { Send, Visibility, VisibilityOff } from "@mui/icons-material";
 
 const DrawPost = ({ post }) => {
   if (post == null) {
     return (
       <div
-        classesName="ReadPost"
+        className="ReadPost"
         style={{
           display: "flex",
           width: "100%",
@@ -27,7 +27,7 @@ const DrawPost = ({ post }) => {
   } else {
     return (
       <div
-        classesName="ReadPost"
+        className="ReadPost"
         style={{
           display: "flex",
           width: "100%",
@@ -36,13 +36,13 @@ const DrawPost = ({ post }) => {
           flexDirection: "column",
         }}
       >
-        <div classesName="PostTitle" style={{ margin: "2em" }}>
+        <div className="PostTitle" style={{ margin: "2em" }}>
           <Typography variant="h4" sx={{ color: "primary.main" }}>
             {post.post_title}
           </Typography>
         </div>
         <Divider />
-        <div classesName="PostContent" style={{ margin: "2em" }}>
+        <div className="PostContent" style={{ margin: "2em" }}>
           <Typography variant="body1">{post.post_content}</Typography>
         </div>
       </div>
@@ -53,10 +53,12 @@ const DrawPost = ({ post }) => {
 export default function Read({ post }) {
   // 이모지가 한계 범위를 벗어나면 안되기 때문에 범위를 지정 해 주어야 함. useref를 사용
   const constraintsRef = useRef(null);
+  const [visible, setVisible] = useState(true);
 
   return (
     <>
       <DrawPost post={post} />
+
       <div
         className="emojiBox"
         ref={constraintsRef}
@@ -69,12 +71,32 @@ export default function Read({ post }) {
           padding: "1em",
           flexWrap: "wrap",
           alignContent: "flex-end",
+          visibility: visible ? "visible" : "hidden",
         }}
       >
         <IconProvider
           emojis={post == null ? [] : post.emoji}
           emojiBoxRef={constraintsRef}
         />
+      </div>
+
+      <div
+        className="EmojiVisible"
+        style={{
+          top: "25px",
+          position: "absolute",
+          display: "inline-block",
+          right: "25px",
+          zIndex: "3",
+        }}
+      >
+        <IconButton onClick={() => setVisible(!visible)}>
+          {visible ? (
+            <Visibility sx={{ fontSize: "2em" }} />
+          ) : (
+            <VisibilityOff sx={{ fontSize: "2em" }} />
+          )}
+        </IconButton>
       </div>
     </>
   );

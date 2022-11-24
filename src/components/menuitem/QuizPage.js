@@ -31,7 +31,7 @@ const QuizMaker = ({ data, onClickAnswer = (f) => f }) => {
 
   return (
     <div
-      classesName="ReadPost"
+      className="ReadPost"
       style={{
         display: "flex",
         width: "100%",
@@ -83,7 +83,7 @@ const SendedQuiz = () => {
   return (
     <>
       <div
-        classesName="ReadPost"
+        className="ReadPost"
         style={{
           display: "flex",
           width: "100%",

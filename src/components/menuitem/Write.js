@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 
 // Component
 import CustomizedDividers from "./ToggleButton";
+import ReactPlayer from "react-player";
 
 // MUI
 import {
@@ -21,6 +22,8 @@ export default function Write({ addNewPost = (f) => f }) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
+  const [test, setTest] = useState("");
+
   const sendPostToMain = () => {
     addNewPost({
       uuid: null,
@@ -39,6 +42,25 @@ export default function Write({ addNewPost = (f) => f }) {
     setContent("");
   };
 
+  const canPostTitle = useMemo(() => {
+    if (title.length > 1) return true;
+    else return false;
+  }, [title]);
+
+  const canPostContent = useMemo(() => {
+    if (content.length > 9) return true;
+    else return false;
+  }, [content]);
+
+  const canMusicTitle = useMemo(() => {
+    if (musicTitle.length > 0) return true;
+    else return false;
+  }, [musicTitle]);
+
+  const canMusicUrl = useMemo(() => {
+    return ReactPlayer.canPlay(musicUrl);
+  }, [musicUrl]);
+
   return (
     <Box
       component="form"
@@ -53,6 +75,8 @@ export default function Write({ addNewPost = (f) => f }) {
       }}
     >
       <TextField
+        error={!canPostTitle}
+        helperText={canPostTitle ? "" : "두 글자 이상 적어주세요."}
         id="title"
         label="사연 제목"
         variant="standard"
@@ -62,11 +86,16 @@ export default function Write({ addNewPost = (f) => f }) {
       <Divider />
       <CustomizedDividers />
       <TextField
+        error={!canPostContent}
+        helperText={
+          canPostContent
+            ? "자신의 사연을 남들에게 공유하세요!"
+            : "열 글자 이상 적어주세요."
+        }
         multiline
         fullWidth
         minRows="15"
         label="사연 쓰기"
-        helperText="자신의 사연을 남들에게 공유하세요!"
         variant="standard"
         onChange={(e) => setContent(e.target.value)}
         value={content}
@@ -75,6 +104,8 @@ export default function Write({ addNewPost = (f) => f }) {
         }}
       />
       <TextField
+        error={!canMusicTitle}
+        helperText={canMusicTitle ? "" : "한 글자 이상 적어주세요."}
         id="music_title"
         label="음악 제목"
         variant="standard"
@@ -82,9 +113,14 @@ export default function Write({ addNewPost = (f) => f }) {
         value={musicTitle}
       />
       <TextField
+        error={!canMusicUrl}
+        helperText={
+          canMusicUrl
+            ? "유튜브, 사운드 클라우드 지원"
+            : "지원하지 않는 주소입니다. 다시 한번 확인해 주세요."
+        }
         id="music_url"
         label="음악 주소"
-        helperText="유튜브, 사운드 클라우드 지원"
         variant="standard"
         onChange={(e) => setMusicUrl(e.target.value)}
         value={musicUrl}
@@ -92,6 +128,9 @@ export default function Write({ addNewPost = (f) => f }) {
       <div style={{ flex: 1 }} />
       <Button
         variant="contained"
+        disabled={
+          !canPostTitle || !canPostContent || !canMusicTitle || !canMusicUrl
+        }
         endIcon={<Send />}
         onClick={sendPostToMain}
         style={{ height: "4em" }}

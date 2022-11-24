@@ -29,16 +29,21 @@ function Weather() {
       <div
         className="weatherBox"
         style={{
-          textAlign: "center",
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
-        <div id="Temperature" style={{ color: "black", fontSize: "10px" }}>
+        <div id="Temperature" style={{ color: "white", fontSize: "5em" }}>
           {(weather.temperature - 273.15).toFixed(2)}℃
         </div>
-        <div id="WeatherDiv" style={{ color: "black", fontSize: "10px" }}>
+        <div id="WeatherDiv" style={{ color: "white", fontSize: "5em" }}>
           {weather.main}
         </div>
-        <img src={iconurl} style={{ width: "20px", height: "20px" }} alt=" " />
+        <img src={iconurl} style={{ width: "10em" }} alt=" " />
       </div>
     </>
   );
