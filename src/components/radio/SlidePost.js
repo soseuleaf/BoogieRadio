@@ -28,7 +28,7 @@ const SlidePost = ({
 
   // PostData json 배열의 해당 값을 가져오고, postdata의 길이를 저장합니다.
   const post = postData[index];
-  const user = userData[index];
+  const user = userData[post.user_id];
   const postLength = postData.length;
 
   /* 

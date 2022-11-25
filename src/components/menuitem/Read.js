@@ -4,10 +4,21 @@ import React, { useState, useRef } from "react";
 import IconProvider from "./IconProvider";
 
 // MUI
-import { Divider, Typography, Paper, Box, IconButton } from "@mui/material";
+import {
+  Divider,
+  Typography,
+  Paper,
+  Box,
+  IconButton,
+  Avatar,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemAvatar,
+} from "@mui/material";
 import { Send, Visibility, VisibilityOff } from "@mui/icons-material";
 
-const DrawPost = ({ post }) => {
+const DrawPost = ({ post, user }) => {
   if (post == null) {
     return (
       <div
@@ -36,10 +47,18 @@ const DrawPost = ({ post }) => {
           flexDirection: "column",
         }}
       >
-        <div className="PostTitle" style={{ margin: "2em" }}>
+        <div className="PostTitle" style={{ margin: "1em" }}>
           <Typography variant="h4" sx={{ color: "primary.main" }}>
             {post.post_title}
           </Typography>
+        </div>
+        <div className="UserInfo">
+          <ListItem sx={{ mb: 2 }}>
+            <ListItemAvatar>
+              <Avatar src={user[post.user_id].user_profile}></Avatar>
+            </ListItemAvatar>
+            <ListItemText primary={user[post.user_id].user_name} />
+          </ListItem>
         </div>
         <Divider />
         <div className="PostContent" style={{ margin: "2em" }}>
@@ -50,14 +69,14 @@ const DrawPost = ({ post }) => {
   }
 };
 
-export default function Read({ post }) {
+export default function Read({ post, user }) {
   // 이모지가 한계 범위를 벗어나면 안되기 때문에 범위를 지정 해 주어야 함. useref를 사용
   const constraintsRef = useRef(null);
   const [visible, setVisible] = useState(true);
 
   return (
     <>
-      <DrawPost post={post} />
+      <DrawPost post={post} user={user} />
 
       <div
         className="emojiBox"

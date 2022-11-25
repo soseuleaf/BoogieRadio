@@ -15,7 +15,6 @@ import Neonoff from "./components/neon/NeonOff";
 // MUI
 import { IconButton, Tooltip } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-
 import {
   Edit,
   Favorite,
@@ -30,15 +29,11 @@ import {
 import { motion, useCycle } from "framer-motion";
 
 // Data
-import { PostData } from "/src/data/PostData";
+import PostData from "/src/db/PostData";
+import UserData from "/src/db/UserData";
 
 //faker
 import { faker } from "@faker-js/faker";
-
-const userData = [...Array(50)].map(() => ({
-  name: faker.name.fullName(),
-  avatar: faker.internet.avatar(),
-}));
 
 const NightTheme = createTheme({
   palette: {
@@ -62,11 +57,22 @@ const NightTheme = createTheme({
   },
 });
 
-const loadUserPost = () => [...PostData];
+const loadUserPost = [...PostData];
+const loadUserData = [...UserData];
+faker.locale = "ko";
+
+const fakerUserData = [...Array(50)].map((value, index) => ({
+  uuid: index + 12,
+  user_name: faker.name.firstName() + faker.name.lastName(),
+  user_profile: faker.internet.avatar(),
+  user_introduce: faker.lorem.text(),
+}));
+
+const newUserData = [...loadUserData, ...fakerUserData];
 
 function HansungRadio() {
   // 글 데이터를 저장하는 hook
-  const [postData, setPostData] = useState(loadUserPost());
+  const [postData, setPostData] = useState(loadUserPost);
   // 메뉴가 열렸는지 안 열렸는지 확인하는 hook
   const [isOpen, setOpen] = useState(0);
   const [isRead, setRead] = useState(false);
@@ -74,7 +80,6 @@ function HansungRadio() {
   const [neon, setNeon] = useState(true);
 
   const openMenuArray = useMemo(() => {
-    console.log("메뉴오픈계산됨");
     let temp = [false, false, false, false, false, false];
     temp[isOpen] = true;
     return temp;
@@ -101,12 +106,10 @@ function HansungRadio() {
   };
 
   const openPost = (index) => {
-    console.log(index);
     setRead(index);
     openMenu(3);
   };
 
-  // 메뉴가 열리면 동작함
   const openMenu = (value) => {
     setOpen(value);
   };
@@ -149,7 +152,7 @@ function HansungRadio() {
             postData={postData}
             modifyEmoji={modifyEmoji}
             openPost={openPost}
-            userData={userData}
+            userData={newUserData}
           />
         </motion.div>
 
@@ -168,7 +171,7 @@ function HansungRadio() {
           content={
             <Top10list
               postData={postData}
-              userData={userData}
+              userData={newUserData}
               openPost={openPost}
             />
           }
@@ -180,7 +183,7 @@ function HansungRadio() {
         <Menu
           index={3}
           icon={<Search />}
-          content={<Read post={readPost} />}
+          content={<Read post={readPost} user={newUserData} />}
           tooltip={"사연을 자세히 살펴볼 수 있습니다."}
           top={200}
           isOpen={openMenuArray}
@@ -189,7 +192,7 @@ function HansungRadio() {
         <Menu
           index={4}
           icon={<Person />}
-          content={<Userlist userData={userData} />}
+          content={<Userlist userData={newUserData} />}
           tooltip={"다양한 사용자를 만나보세요."}
           top={300}
           isOpen={openMenuArray}

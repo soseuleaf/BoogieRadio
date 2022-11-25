@@ -10,12 +10,13 @@ import {
   FormControlLabel,
   Paper,
   Box,
+  Divider,
   FormHelperText,
 } from "@mui/material";
 import { CardGiftcard } from "@mui/icons-material";
 
 // Data
-import { QuizData } from "/src/data/QuizData";
+import QuizData from "/src/db/QuizData";
 
 const QuizMaker = ({ data, onClickAnswer = (f) => f }) => {
   const [value, setValue] = useState("");
@@ -44,7 +45,10 @@ const QuizMaker = ({ data, onClickAnswer = (f) => f }) => {
       <Typography variant="h3" sx={{ color: "primary.main" }}>
         {data.title}
       </Typography>
-      <Typography variant="body1">{data.content}</Typography>
+      <Typography variant="body1" sx={{ mb: 5 }}>
+        {data.content}
+      </Typography>
+
       <RadioGroup
         name="quiz"
         value={value}
@@ -71,8 +75,15 @@ const QuizMaker = ({ data, onClickAnswer = (f) => f }) => {
           label={data.choice[3]}
         />
       </RadioGroup>
-      <FormHelperText>{hint}</FormHelperText>
-      <Button sx={{ mt: 1, mr: 1 }} onClick={checkAnswer} variant="outlined">
+      <FormHelperText>
+        <pre>{hint}</pre>
+      </FormHelperText>
+      <Button
+        fullWidth
+        sx={{ mt: 1, mr: 1 }}
+        onClick={checkAnswer}
+        variant="outlined"
+      >
         정답 보내기
       </Button>
     </div>

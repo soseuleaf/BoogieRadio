@@ -62,7 +62,7 @@ function RankItem({ rank, postData, userData, num, onClick = (f) => f }) {
       <div className="RankIcon" style={{ minWidth: "2em" }}>
         <RankIcon rank={rank} />
       </div>
-      <Avatar src={user.avatar} sx={{ marginRight: "1em" }} />
+      <Avatar src={user.user_profile} sx={{ marginRight: "1em" }} />
       <ListItemText
         primary={postData.post_title}
         secondary={postData.music_title}

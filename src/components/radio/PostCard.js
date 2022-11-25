@@ -85,7 +85,7 @@ const PostCard = ({
       <CardHeader
         avatar={
           /* 유저의 프로필 이미지가 들어갈 둥근 이미지 입니다. */
-          <Avatar src={user.avatar} />
+          <Avatar src={user.user_profile} />
         }
         action={
           <Button startIcon={<ImportContacts />} onClick={clickDetail}>
@@ -93,7 +93,7 @@ const PostCard = ({
           </Button>
         }
         title={post.post_title}
-        subheader={user.name}
+        subheader={user.user_name}
       />
 
       <MediaPlayer

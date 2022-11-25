@@ -16,9 +16,19 @@ function UserItem({ userData }) {
   return (
     <ListItem sx={{ height: 60 }}>
       <ListItemAvatar>
-        <Avatar src={userData.avatar}></Avatar>
+        <Avatar src={userData.user_profile}></Avatar>
       </ListItemAvatar>
-      <ListItemText primary={userData.name} />
+      <ListItemText
+        primary={userData.user_name}
+        secondary={userData.user_introduce}
+        secondaryTypographyProps={{
+          style: {
+            whiteSpace: "nowrap",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+          },
+        }}
+      />
     </ListItem>
   );
 }
