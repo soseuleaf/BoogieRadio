@@ -4,10 +4,10 @@ import React, { useRef } from "react";
 import { Button, Box } from "@mui/material";
 import {
   Favorite,
-  ThumbUpAlt,
+  ThumbUp,
   SentimentSatisfiedAlt,
   Celebration,
-  EmojiEmotions,
+  Star,
 } from "@mui/icons-material";
 import { red, yellow, blue, green, purple } from "@mui/material/colors";
 
@@ -20,13 +20,13 @@ const EmojiIcon = ({ index }) => {
     case 0:
       return <Favorite sx={{ fontSize: 40, color: red[700] }} />;
     case 1:
-      return <ThumbUpAlt sx={{ fontSize: 40, color: yellow[700] }} />;
+      return <ThumbUp sx={{ fontSize: 40, color: yellow[700] }} />;
     case 2:
       return <SentimentSatisfiedAlt sx={{ fontSize: 40, color: green[700] }} />;
     case 3:
       return <Celebration sx={{ fontSize: 40, color: blue[700] }} />;
     case 4:
-      return <EmojiEmotions sx={{ fontSize: 40, color: purple[700] }} />;
+      return <Star sx={{ fontSize: 40, color: purple[700] }} />;
   }
 };
 
@@ -34,7 +34,7 @@ const EmojiIcon = ({ index }) => {
 // type은 단순히 배열의 index
 // value는 index가 가지고 있는 값
 // contraintsRef는 <motion.div className="drag-area" ref={constraintsRef}>의 참조값
-const DragableEmoji = ({ type, value, emojiRef }) => {
+const DragableEmoji = ({ type, value, dragRef }) => {
   // 컴포넌트를 여러개 반환해야하기 때문에 배열을 선언
   let motionDivArray = [];
   // 그려야할 이모지를 받아와서 드래그가 가능한 div안에 넣어줌. 드래그 제한 공간도 지정.
@@ -44,7 +44,7 @@ const DragableEmoji = ({ type, value, emojiRef }) => {
       key={index}
       drag
       whileTap={{ scale: 0.8 }}
-      dragConstraints={emojiRef}
+      dragConstraints={dragRef}
       style={{
         width: "min-content",
         height: "min-content",
@@ -63,14 +63,14 @@ const DragableEmoji = ({ type, value, emojiRef }) => {
   return motionDivArray;
 };
 
-function IconProvider({ emojis, paperRef }) {
+function IconProvider({ emojis, emojiBoxRef }) {
   /* 배열의 위치에 해당 하는 이모티콘을, 배열의 값에 해당하는 만큼 가져옴*/
   return emojis.map((value, index) => (
     <DragableEmoji
       key={index + "-" + value}
       type={index}
       value={value}
-      emojiRef={paperRef}
+      dragRef={emojiBoxRef}
     />
   ));
 }

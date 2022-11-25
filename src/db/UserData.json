@@ -1,0 +1,73 @@
+[
+  {
+    "user_name": "웃는 다람쥐",
+    "user_profile": "image/profile/1.png",
+    "user_introduce": "사람은 오로지 가슴으로만 올바로 볼 수 있다. 본질적인 것은 눈에 보이지 않는다"
+  },
+
+  {
+    "user_name": "고마운 햄스터",
+    "user_profile": "image/profile/2.png",
+    "user_introduce": "빛을 퍼뜨릴 수 있는 두 가지 방법이 있다. 촛불이 되거나 또는 그것을 비추는 거울이 되는 것이다"
+  },
+
+  {
+    "user_name": "화난 달팽이",
+    "user_profile": "image/profile/3.png",
+    "user_introduce": "두려움 때문에 갖는 존경심만큼 비열한 것은 없다"
+
+  },
+
+  {
+    "user_name": "졸린 펭귄",
+    "user_profile": "image/profile/4.png",
+    "user_introduce": "당신이 잘 하는 일이라면 무엇이나 행복에 도움이 된다"
+
+  },
+
+  {
+    "user_name": "배부른 다람쥐",
+    "user_profile": "image/profile/5.png",
+    "user_introduce": "스스로를 신뢰하는 사람만이 다른 사람들에게 성실할 수 있다"
+
+  },
+
+  {
+    "user_name": "안아줘요 날다람쥐",
+    "user_profile": "image/profile/6.png",
+    "user_introduce": "큰 재주를 가졌다면 근면은 그 재주를 더 낫게 해줄 것이며 보통의 능력밖에 없다면 근면은 부족함을 보충해 줄 것이다"
+
+  },
+  {
+    "user_name": "행복한 날치",
+    "user_profile": "image/profile/7.png",
+    "user_introduce": "지성을 소유하고 또 그렇다는 것을 아는 사람은 그렇지 못한 열 사람에게 언제나 승리한다"
+
+  },
+  
+  {
+    "user_name": "미안한 고슴도치",
+    "user_profile": "image/profile/8.png",
+    "user_introduce": "재물을 스스로 만들지 않는 사람에게는 쓸 권리가 없듯이 행복도 스스로 만들지 않는 사람에게는 누릴 권리가 없다"
+  },
+  
+  {
+    "user_name": "잘자는 팬더",
+    "user_profile": "image/profile/9.png",
+    "user_introduce": "세상은 고통으로 가득하지만 한편 그것을 이겨내는 일로도 가득차 있다"
+
+  },
+  
+  {
+    "user_name": "우는 라쿤",
+    "user_profile": "image/profile/10.png",
+    "user_introduce": "배움이 없는 자유는 언제나 위험하며 자유가 없는 배움은 언제나 헛된 일이다"
+
+  },
+  
+  {
+    "user_name": "이상한 토끼",
+    "user_profile": "image/profile/11.png",
+    "user_introduce": "무례한 사람의 행위는 내 행실을 바로 잡게 해주는 스승이다"
+  }
+]

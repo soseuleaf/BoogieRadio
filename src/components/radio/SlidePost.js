@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 
 // MUI Material
 import { Slide, IconButton, Box } from "@mui/material";
+import { Paper, Grid, Button, CssBaseline } from "@mui/material";
 
 // MUI Icons
 import { ArrowLeft, ArrowRight } from "@mui/icons-material";
@@ -14,6 +15,7 @@ import PostCard from "./PostCard";
 
 const SlidePost = ({
   postData,
+  userData,
   modifyEmoji = (f) => f,
   openPost = (f) => f,
 }) => {
@@ -26,6 +28,7 @@ const SlidePost = ({
 
   // PostData json 배열의 해당 값을 가져오고, postdata의 길이를 저장합니다.
   const post = postData[index];
+  const user = userData[post.user_id];
   const postLength = postData.length;
 
   /* 
@@ -72,7 +75,7 @@ const SlidePost = ({
             height: 100,
           }}
         >
-          <ArrowLeft sx={{ fontSize: "80px" }} />
+          <ArrowLeft sx={{ fontSize: "80px", color: "#fbc02d" }} />
         </IconButton>
       );
     } else {
@@ -84,7 +87,7 @@ const SlidePost = ({
             height: 100,
           }}
         >
-          <ArrowRight sx={{ fontSize: "80px" }} />
+          <ArrowRight sx={{ fontSize: "80px", color: "#fbc02d" }} />
         </IconButton>
       );
     }
@@ -95,7 +98,8 @@ const SlidePost = ({
       sx={{
         position: "absolute",
         left: "50%",
-        top: "320px",
+        top: 320,
+
         transform: "translate(-50%, 0%)",
         display: "flex",
         justifyContent: "center",
@@ -106,9 +110,10 @@ const SlidePost = ({
       <Slide in={slideIn} direction={slideDirection}>
         <Box sx={{ width: 420, height: 348.5, backgroundColor: "transparent" }}>
           <PostCard
+            user={user}
             post={post}
             clickEmoji={clickEmoji}
-            clickDetail={() => openPost(index)}
+            clickDetail={() => openPost(post.uuid)}
           />
         </Box>
       </Slide>

@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "./neon.css";
+import Styless from "./Neon.css";
 
 const Neon = ({ content }) => {
   return (
-    <div className="container-center-horizontal">
-      <div className="f_ont screen">
+    <div className="center">
+      <div className="f_ont">
         <div className="overlap-group">
           <h1 className="title inter-bold-white-150px">{content}</h1>
           <div className="boogie-radio inter-bold-white-150px">{content}</div>
@@ -21,9 +21,8 @@ const Neon = ({ content }) => {
             <div className="rectangle-5-2"></div>
             <div className="rectangle-5-3"></div>
             <div className="rectangle-5-4"></div>
-
             <div className="ellipse"></div>
-            <div className="rectangle"></div>
+
             <div className="rectangle-1"></div>
             <div className="rectangle-2"></div>
             <div className="rectangle-3"></div>

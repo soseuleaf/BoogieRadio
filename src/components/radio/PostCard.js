@@ -21,8 +21,8 @@ import {
   Favorite,
   ThumbUp,
   SentimentSatisfiedAlt,
+  Celebration,
   Star,
-  TipsAndUpdates,
   ImportContacts,
 } from "@mui/icons-material";
 
@@ -30,7 +30,7 @@ import {
 import MediaPlayer from "./MediaPlayer";
 
 // User Data
-import { UserData } from "/src/data/UserData";
+//import { UserData } from "/src/data/UserData";
 //import ScrollDialog from "/src/components/menu/ScrollDialog";
 //import Write from "/src/components/write/Write";
 
@@ -44,18 +44,22 @@ const getEmoji = (index, color) => {
     case 2:
       return <SentimentSatisfiedAlt sx={color} />;
     case 3:
-      return <Star sx={color} />;
+      return <Celebration sx={color} />;
     case 4:
-      return <TipsAndUpdates sx={color} />;
+      return <Star sx={color} />;
   }
 };
 
 // 플레이어, 유저 사연등을 표시하는 가드 입니다.
-const PostCard = ({ post, clickEmoji = (f) => f, clickDetail = (f) => f }) => {
+const PostCard = ({
+  post,
+  user,
+  clickEmoji = (f) => f,
+  clickDetail = (f) => f,
+}) => {
   // 더보기를 클릭하여 사연이 열렸는지 닫혔는지 판단합니다.
   const [expanded, setExpanded] = useState(false);
   // 사연의 user_id를 가져와서 userdata에서 해당 유저의 정보를 찾아서 저장합니다
-  const userData = UserData[post.user_id];
 
   // 더보기 버튼 클릭 시 동작하는 함수 입니다.
   const handleExpandClick = () => {
@@ -81,13 +85,17 @@ const PostCard = ({ post, clickEmoji = (f) => f, clickDetail = (f) => f }) => {
       <CardHeader
         avatar={
           /* 유저의 프로필 이미지가 들어갈 둥근 이미지 입니다. */
-          <Avatar src={`/images/${userData.user_profile}`} />
+          <Avatar src={user.user_profile} />
         }
-        title={
-          /* 유저의 이름이 들어갈 공간 입니다. */
-          userData.user_name
+        action={
+          <Button startIcon={<ImportContacts />} onClick={clickDetail}>
+            사연보기
+          </Button>
         }
+        title={post.post_title}
+        subheader={user.user_name}
       />
+
       <MediaPlayer
         img={post.music_img}
         title={post.music_title}
@@ -123,13 +131,6 @@ const PostCard = ({ post, clickEmoji = (f) => f, clickDetail = (f) => f }) => {
         <EmojiButton index={3} color={{ color: blue[700] }} />
         <EmojiButton index={4} color={{ color: purple[700] }} />
       </Stack>
-
-      {/* 사연의 내용이 들어가는 공간 입니다. */}
-      <CardActions sx={{ justifyContent: "flex-end" }}>
-        <Button startIcon={<ImportContacts />} onClick={clickDetail}>
-          사연보기
-        </Button>
-      </CardActions>
     </Card>
   );
 };

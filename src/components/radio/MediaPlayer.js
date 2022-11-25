@@ -26,12 +26,12 @@ import ReactPlayer from "react-player";
 
 /* styled의 CSS 영역 입니다. 해당 부분은 sx로 지정하기에는 너무 많아서 styled로 따로 지정했습니다. */
 const Widget = styled("div")(() => ({
-  padding: 16,
-  borderRadius: 16,
-  margin: "auto",
+  padding: "1em",
+  margin: "1em",
+  borderRadius: "1em",
   position: "relative",
   zIndex: 1,
-  backgroundColor: "rgba(255,255,255,0.4)",
+  backgroundColor: "rgba(255,255,255,0.8)",
   backdropFilter: "blur(40px)",
 }));
 
@@ -42,7 +42,7 @@ const CoverImage = styled("div")({
   overflow: "hidden",
   flexShrink: 0,
   borderRadius: 8,
-  backgroundColor: "rgba(0,0,0,0.08)",
+  backgroundColor: "rgba(0,0,0,0.2)",
   "& > img": {
     width: "100%",
   },
@@ -131,7 +131,7 @@ const MediaPlayer = ({ img, title, url }) => {
         playing={playing}
         volume={volume}
         ref={setInstance}
-        onReady={autoPlay}
+        //onReady={autoPlay}
         onProgress={handleProgress}
       />
 
@@ -140,10 +140,10 @@ const MediaPlayer = ({ img, title, url }) => {
         {/* 앨범 이미지, 제목이 보여지는 영역 입니다. */}
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <CoverImage>
-            <img src={`/images/${img}`} />
+            <img src={`image/album/${img}`} />
           </CoverImage>
           <Box sx={{ ml: 1.5, minWidth: 0 }}>
-            <Typography noWrap variant="subtitle1">
+            <Typography noWrap variant="h6" sx={{ color: "#000000" }}>
               {title}
             </Typography>
           </Box>
@@ -195,7 +195,7 @@ const MediaPlayer = ({ img, title, url }) => {
           </IconButton>
 
           {/* 볼륨을 조정하기 위한 슬라이더, 볼륨바 입니다. volume 값을 가져와서 해당 값에 적용 시킵니다. */}
-          <VolumeDownRounded />
+          <VolumeDownRounded sx={{ color: "#000" }} />
           <Slider
             min={0}
             max={1}
@@ -222,7 +222,7 @@ const MediaPlayer = ({ img, title, url }) => {
               },
             }}
           />
-          <VolumeUpRounded />
+          <VolumeUpRounded sx={{ color: "#000" }} />
         </Stack>
       </Widget>
     </>

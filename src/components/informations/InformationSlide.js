@@ -15,7 +15,9 @@ import { WbSunny, DirectionsCar } from "@mui/icons-material";
 function chagneContent(state, action) {
   switch (action.type) {
     case "Weather":
-      return <Paper elevation={4}>{/* <Weather /> 시연 때만 키자*/}</Paper>;
+      return (
+        <Paper elevation={4}>{/* 시연할때만 킵시다. <Weather /> */}</Paper>
+      );
     case "Traffic":
       return (
         <Paper elevation={4}>
@@ -61,6 +63,8 @@ const SimpleSlide = () => {
         in={checked}
         onClick={() => setChecked(false)}
         sx={{
+          width: "400px",
+          height: "400px",
           position: "absolute",
           bottom: 0,
           right: 0,
