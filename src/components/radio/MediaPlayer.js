@@ -9,6 +9,7 @@ import {
   Slider,
   IconButton,
   Stack,
+  Avatar,
 } from "@mui/material";
 
 // MUI Icons
@@ -34,19 +35,6 @@ const Widget = styled("div")(() => ({
   backgroundColor: "rgba(255,255,255,0.8)",
   backdropFilter: "blur(40px)",
 }));
-
-const CoverImage = styled("div")({
-  width: 50,
-  height: 50,
-  objectFit: "cover",
-  overflow: "hidden",
-  flexShrink: 0,
-  borderRadius: 8,
-  backgroundColor: "rgba(0,0,0,0.2)",
-  "& > img": {
-    width: "100%",
-  },
-});
 
 const MediaPlayer = ({ img, title, url }) => {
   /* 현재 실행되고 있는 음악의 시간을 저장합니다. */
@@ -139,9 +127,12 @@ const MediaPlayer = ({ img, title, url }) => {
       <Widget>
         {/* 앨범 이미지, 제목이 보여지는 영역 입니다. */}
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          <CoverImage>
-            <img src={`image/album/${img}`} />
-          </CoverImage>
+          <Avatar
+            alt="Album"
+            variant="rounded"
+            src={"image/album/" + img}
+            sx={{ width: 50, height: 50 }}
+          />
           <Box sx={{ ml: 1.5, minWidth: 0 }}>
             <Typography noWrap variant="h6" sx={{ color: "#000000" }}>
               {title}

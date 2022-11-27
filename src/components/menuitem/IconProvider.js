@@ -67,7 +67,7 @@ function IconProvider({ emojis, emojiBoxRef }) {
   /* 배열의 위치에 해당 하는 이모티콘을, 배열의 값에 해당하는 만큼 가져옴*/
   return emojis.map((value, index) => (
     <DragableEmoji
-      key={index + "-" + value}
+      key={index}
       type={index}
       value={value}
       dragRef={emojiBoxRef}

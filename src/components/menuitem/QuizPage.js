@@ -75,12 +75,9 @@ const QuizMaker = ({ data, onClickAnswer = (f) => f }) => {
           label={data.choice[3]}
         />
       </RadioGroup>
-      <FormHelperText>
-        <pre>{hint}</pre>
-      </FormHelperText>
+      <pre>{hint}</pre>
       <Button
-        fullWidth
-        sx={{ mt: 1, mr: 1 }}
+        sx={{ mt: 1, mr: 1, width: "50%" }}
         onClick={checkAnswer}
         variant="outlined"
       >

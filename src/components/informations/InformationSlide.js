@@ -16,7 +16,9 @@ function chagneContent(state, action) {
   switch (action.type) {
     case "Weather":
       return (
-        <Paper elevation={4}>{/* 시연할때만 킵시다. <Weather /> */}</Paper>
+        <Paper elevation={4}>
+          <Weather />
+        </Paper>
       );
     case "Traffic":
       return (

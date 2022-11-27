@@ -32,7 +32,7 @@ const CustomTooltip = styled(({ className, ...props }) => (
 }));
 
 const MenuButton = ({ tooltip, icon, toggle, top, isOpen }) => (
-  <CustomTooltip title={tooltip} placement="right" arrow>
+  <CustomTooltip title={isOpen == 1 ? "닫기" : tooltip} placement="right" arrow>
     <IconButton
       onClick={toggle}
       color="primary"

@@ -8,6 +8,7 @@ import Write from "./components/menuitem/Write";
 import Read from "./components/menuitem/Read";
 import Top10list from "./components/menuitem/top10list";
 import QuizPage from "./components/menuitem/QuizPage";
+import InfoPage from "./components/menuitem/InfoPage";
 import Userlist from "./components/menuitem/Userlist";
 import Neon from "./components/neon/Neon";
 import Neonoff from "./components/neon/NeonOff";
@@ -92,7 +93,7 @@ function HansungRadio() {
   }, [isRead]);
 
   const addNewPost = (data) => {
-    let adduuidData = { ...data, uuid: PostData.length + 1 };
+    let adduuidData = { ...data, uuid: postData.length + 1 };
     setPostData([...postData, adduuidData]);
   };
 
@@ -138,11 +139,10 @@ function HansungRadio() {
                 setNeon(!neon);
               }}
               sx={{
-                position: "relative",
-                top: 170,
-                left: 1500,
-                overflow: "auto",
                 color: neon ? "#cc00ff" : "grey",
+                position: "fixed",
+                right: 0,
+                up: 0,
               }}
             >
               <Lightbulb sx={{ fontSize: "5em" }} />
@@ -212,7 +212,7 @@ function HansungRadio() {
         <Menu
           index={6}
           icon={<Info />}
-          content={<div></div>}
+          content={<InfoPage />}
           tooltip={"제작자 정보"}
           top={500}
           isOpen={openMenuArray}
